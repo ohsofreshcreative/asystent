@@ -284,39 +284,3 @@ add_action('after_setup_theme', function () {
     remove_action('woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 });
 
-
-/**
- * ========================================================================
- * WooCommerce: Wyłączenie sortowania i licznika wyników na stronach archiwów
- * ========================================================================
- * Ten kod usuwa standardowe akcje WooCommerce, aby uprościć wygląd sklepu.
- */
-add_action('init', function () {
-    // Usuń akcję odpowiedzialną za wyświetlanie "Wyświetlanie X z Y wyników"
-    remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
-
-    // Usuń akcję odpowiedzialną za wyświetlanie dropdownu do sortowania
-    remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
-});
-
-
-/*---- CATEGORY REDIRECT TO PAGE ----*/
-
-add_action('template_redirect', function () {
-    // Sprawdź, czy jesteśmy na stronie kategorii produktu i czy ACF jest aktywny
-    if (!is_product_category() || !function_exists('get_field')) {
-        return;
-    }
-
-    // Pobierz aktualny obiekt kategorii
-    $category = get_queried_object();
-
-    // Pobierz ID strony podlinkowanej w polu ACF
-    $linked_page_url = get_field('linked_page', $category);
-
-    // Jeśli strona została podlinkowana, wykonaj przekierowanie 301
-    if ($linked_page_url) {
-        wp_redirect($linked_page_url, 301);
-        exit();
-    }
-});

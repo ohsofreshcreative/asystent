@@ -90,47 +90,48 @@ body {
 /*--- !ROOT ---*/
 
 :root {
-  --body: #12141a !important;
-  --primary: #00aa4f;
-  --p-hover: #008a40;
-  --p-50: #f2fbf6;
-  --p-100: #cceddb;
-  --p-200: #aae1c4;
-  --p-300: #80d2a6;
-  --p-400: #55c488;
-  --p-500: #2bb56b;
-  --p-600: #008a40;
-  --p-700: #006f33;
-  --p-800: #005327;
-  --p-900: #00371a;
-  --p-dark: #00210f;
+  --body: #3C3F44 !important;
+  --primary: #001672;
+  --p-hover: #000f4c; 
 
-  --secondary: #181918;
-  --s-hover: #141514;
-  --s-100: #d1d1d1;
-  --s-200: #b2b2b2;
-  --s-300: #8b8c8b;
-  --s-400: #656665;
-  --s-500: #3f3f3f;
-  --s-600: #141514;
-  --s-700: #101110;
-  --s-800: #0c0d0c;
-  --s-900: #080808;
-  --s-dark: #050505;
+  --p-50: #f2fbf6;
+  --p-100: #cbd1ed;
+  --p-200: #a5afd9;
+  --p-300: #7886be;
+  --p-400: #5364ac;
+  --p-500: #253a91;
+  --p-600: #00125f;
+  --p-700: #000f4c; 
+  --p-800: #000b39;
+  --p-900: #000726;
+  --p-dark: #000417;
+
+  --secondary: #f56e12;
+  --s-hover: #cc5c0f;
+  --s-100: #fde2d0;
+  --s-200: #fccfb0;
+  --s-300: #fab688;
+  --s-400: #f89e61;
+  --s-500: #f7863a;
+  --s-600: #cc5c0f;
+  --s-700: #a3490c;
+  --s-800: #7b3709;
+  --s-900: #522506;
+  --s-dark: #311604;
 
   --text-p-light: var(--p-400);
   --text-p-lighter: var(--p-200);
   --text-s-light: var(--s-300);
   --text-s-lighter: var(--s-100);
 
-  --gray: #63656a;
-  --bg: #fafafa;
-  --bg-dark: #002704;
-  --bg-p-light: #fffafa;
-  --bg-p-lighter: var(--p-200);
-  --bg-p-bright: #efe4d5;
+  --gray: #adb1bd;
+  --bg: #EBF0FF;
+  --bg-light: #F3F6FF;
+  --bg-dark: var(--p-700);
+  --bg-p-light: var(--p-200);
+  --bg-p-lighter: var(--p-100);
   --bg-s-light: var(--s-300);
-  --bg-s-lighter: #f5fbff;
+  --bg-s-lighter: var(--s-100);
 
   --border-p: var(--primary);
   --border-p-light: var(--p-200);
@@ -138,13 +139,13 @@ body {
   --border-s: var(--s-300);
   --border-s-light: var(--s-200);
 
-  --header: 'SohoPro', serif;
-  --txt: 'adelle-sans', sans-serif;
-  --btns-font: 'adelle-sans', sans-serif;
+  --header: "cy-text", sans-serif;
+  --txt: "cy-text", sans-serif;
+  --btns-font: "cy-text", sans-serif;
 
   --smt: 104px;
   --spt: 104px;
-  --menu-height: 72px !important;
+  --menu-height: 104px !important;
 
   --img-xs: 200px;
   --img-s: 240px;
@@ -162,66 +163,13 @@ body {
   --radius: 16px;
 
   --btns-fontsize: 16px;
-  --btns-radius: 104px;
+  --btns-radius: 120px;
   --btns-padding: 16px 40px;
 
   --footer-py: 156px 0;
 
-  --gradient: linear-gradient(-90deg, var(--secondary) 0%, #006f11 100%);
-}
-
-@font-face {
-  font-family: 'SohoPro';
-  src: url('../fonts/SohoPro-Bold.woff2') format('woff2');
-  font-weight: 700; /* Bold */
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'SohoPro';
-  src: url('../fonts/SohoPro-ExtraBold.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'SohoPro';
-  src: url('../fonts/SohoPro-ExtraLight.woff2') format('woff2');
-  font-weight: 200; /* ExtraLight */
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'SohoPro';
-  src: url('../fonts/SohoPro-ExtraLightItalic.woff2') format('woff2');
-  font-weight: 200; /* ExtraLight */
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'SohoPro';
-  src: url('../fonts/SohoPro-Italic.woff2') format('woff2');
-  font-weight: normal; /* Domyślny, jeśli nie ma w nazwie */
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'SohoPro';
-  src: url('../fonts/SohoPro-Light.woff2') format('woff2');
-  font-weight: 300; /* Light */
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'SohoPro';
-  src: url('../fonts/SohoPro-Medium.woff2') format('woff2');
-  font-weight: 500; /* Medium */
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'SohoPro';
-  src: url('../fonts/SohoPro-Regular.woff2') format('woff2');
-  font-weight: 400; /* Regular */
-  font-style: normal;
+  --gradient: linear-gradient(-90deg, var(--primary) 0%, var(--p-700) 100%);
+  --gradient-light: linear-gradient(-90deg, var(--primary) 0%, #001FA0 100%);
 }
 
 /*--- !CONTAINERS ---*/
@@ -894,7 +842,7 @@ h6,
 .small-btn {
   font-family: var(--btns-font);
   font-size: var(--btns-fontsize);
-  background: var(--primary);
+  background: var(--secondary);
   color: #fff;
   padding: 8px 24px;
   display: inline-block;
@@ -909,7 +857,7 @@ h6,
 
 .small-btn:hover {
   color: #fff;
-  background: var(--p-hover);
+  background: var(--s-hover);
   transition: all 0.2s ease-out;
   border: 1px solid transparent;
 }
@@ -1009,7 +957,7 @@ h6,
   z-index: 49;
   transition: all 0.3s;
   transition-delay: 0s;
-  box-shadow: 0 3px 5px rgba(27, 106, 23, 0.2) !important;
+  box-shadow: 0 3px 5px rgba(0, 11, 57, 0.2) !important;
 
   .contact__btn {
     background-color: var(--primary);
@@ -1134,7 +1082,7 @@ textarea {
 input[type='submit'] {
   font-size: 16px;
   background: var(--primary);
-  color: #FFF;
+  color: #fff;
   padding: var(--btns-padding);
   display: inline-block;
   transition: all 0.2s ease-out;
@@ -1160,9 +1108,9 @@ input[type='checkbox'] {
 }
 
 .wpcf7 .wpcf7-submit:disabled {
-    cursor: not-allowed;
-	color:var(--color-gray-500);
-	background-color: var(--color-gray-400);
+  cursor: not-allowed;
+  color: var(--color-gray-500);
+  background-color: var(--color-gray-400);
 }
 
 .acceptance label {
@@ -1382,9 +1330,9 @@ article.post:hover img {
 /*--- !SHOP PAGE ---*/
 
 .archive.woocommerce-shop.woocommerce.woocommerce-page {
-	h1 {
-		display: none !important;
-	}
+  h1 {
+    display: none !important;
+  }
 }
 
 .woocommerce .products ul::after,
@@ -1395,20 +1343,20 @@ article.post:hover img {
 }
 
 .woocommerce-shop {
-	.__product {
-		transition: all 0.3s ease-in-out;
-	}
-	.__product:hover {
-		transform: translateY(-4px);
-		transition: all 0.3s ease-in-out;
-		a {
-			background-color: var(--p-100);
-		}
-	}
+  .__product {
+    transition: all 0.3s ease-in-out;
+  }
+  .__product:hover {
+    transform: translateY(-4px);
+    transition: all 0.3s ease-in-out;
+    a {
+      background-color: var(--p-100);
+    }
+  }
   .products {
-	img {
-		max-width: 120px;
-	}
+    img {
+      max-width: 120px;
+    }
     .woocommerce-loop-category__title {
       mark {
         display: none !important;

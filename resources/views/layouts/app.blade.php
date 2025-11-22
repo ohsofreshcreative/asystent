@@ -8,7 +8,7 @@
 	@php(wp_head())
 
 	{{-- Fonts --}}
-	<link rel="stylesheet" href="https://use.typekit.net/jgm3pcx.css">
+	<link rel="stylesheet" href="https://use.typekit.net/wai6xne.css">
 
 	@vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -27,13 +27,13 @@
 
 		@elseif (function_exists('is_product') && is_product())
 
-		<main id="main" class="main">
+		<main id="main" class="main -smt">
 			@yield('content')
 		</main>
 
 		@else
 
-		<main id="main" class="main">
+		<main id="main" class="main -smt">
 			@yield('content')
 		</main>
 
