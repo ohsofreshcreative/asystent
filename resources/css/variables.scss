@@ -1455,10 +1455,9 @@ article.post:hover img {
   }
 
   .__widgets {
-    grid-template-columns: repeat(4, 1fr);
-
+      color: rgba(255, 255, 255, 0.7);
     p {
-      color: #fff;
+      color: rgba(255, 255, 255, 0.7);
     }
 
     a {
