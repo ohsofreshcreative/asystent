@@ -5,59 +5,57 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Offer extends Block
+class Quote extends Block
 {
-	public $name = 'Oferta';
-	public $description = 'offer';
-	public $slug = 'offer';
+	public $name = 'Cytat';
+	public $description = 'quote';
+	public $slug = 'quote';
 	public $category = 'formatting';
-	public $icon = 'ellipsis';
-	public $keywords = ['offer', 'kafelki'];
+	public $icon = 'format-quote';
+	public $keywords = ['cytat', 'tekst'];
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
 		'mode' => false,
 		'jsx' => true,
+		'anchor' => true,
+		'customClassName' => true,
 	];
 
 	public function fields()
 	{
-		$offer = new FieldsBuilder('offer');
+		$quote = new FieldsBuilder('quote');
 
-		$offer
-			->setLocation('block', '==', 'acf/offer') // ważne!
+		$quote
+			->setLocation('block', '==', 'acf/quote') // ważne!
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Oferta',
+				'label' => 'Cytat',
 				'open' => false,
 				'multi_expand' => true,
 			])
-			/*--- TAB #1 ---*/
-			->addTab('Treści', ['placement' => 'top'])
-			->addGroup('g_offer', ['label' => ''])
-			->addText('header', ['label' => 'Nagłówek'])
-			->addRepeater('r_offer', [
-				'label' => 'Kafelki',
-				'layout' => 'table', // 'row', 'block', albo 'table'
-				'min' => 1,
-				'button_label' => 'Dodaj kafelek'
-			])
+			/*--- GROUP ---*/
+			->addTab('Elementy', ['placement' => 'top'])
+			->addGroup('g_quote', ['label' => ''])
 			->addImage('image', [
 				'label' => 'Obraz',
 				'return_format' => 'array', // lub 'url', lub 'id'
 				'preview_size' => 'medium',
 			])
-			->addText('header', [
-				'label' => 'Nagłówek',
+			->addText('header', ['label' => 'Nagłówek'])
+			->addWysiwyg('txt', [
+				'label' => 'Treść',
+				'tabs' => 'all', // 'visual', 'text', 'all'
+				'toolbar' => 'full', // 'basic', 'full'
+				'media_upload' => true,
 			])
 			->addLink('button', [
 				'label' => 'Przycisk',
 				'return_format' => 'array',
 			])
-			->endRepeater()
 			->endGroup()
 
 			/*--- USTAWIENIA BLOKU ---*/
@@ -108,14 +106,14 @@ class Offer extends Block
                 'ui' => 0, // Ulepszony interfejs
                 'allow_null' => 0,
             ]);
-		return $offer;
+
+		return $quote;
 	}
 
 	public function with()
 	{
 		return [
-			'g_offer' => get_field('g_offer'),
-			'r_offer' => get_field('r_offer'),
+			'g_quote' => get_field('g_quote'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
 			'flip' => get_field('flip'),

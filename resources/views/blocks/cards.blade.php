@@ -12,7 +12,7 @@ if (!empty($background) && $background !== 'none') {
 
 <!--- cards --->
 
-<section data-gsap-anim="section" class="s-cards -smt {{ $sectionClass }}">
+<section data-gsap-anim="section" class="b-cards -smt {{ $sectionClass }}">
 	<div class="__wrapper c-main">
 		<div class="">
 

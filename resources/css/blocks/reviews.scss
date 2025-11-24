@@ -1,5 +1,6 @@
-.s-reviews {
+.b-reviews {
   .swiper {
+	position: unset !important;
     .__img img {
       width: 56px;
       height: 56px;
@@ -57,7 +58,7 @@
 
 	.swiper-button-next:after,
 	.swiper-button-prev:after {
-		content: url('http://tlc.local/wp-content/uploads/2025/11/arrow.svg');
+		content: url('/wp-content/uploads/2025/11/blue-arrow.svg');
 		height: 100%;
 		position: relative;
 	}

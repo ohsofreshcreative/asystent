@@ -35,43 +35,14 @@ class Hero extends Block
 				'open' => false,
 				'multi_expand' => true,
 			])
+			/*--- TAB #1 ---*/
 			->addTab('Treść', ['placement' => 'top'])
 			->addGroup('g_hero', ['label' => 'Hero'])
-			->addTrueFalse('use_video', [
-				'label' => 'Użyj wideo w tle',
-				'ui' => 1,
-				'default_value' => 0, // domyślnie obraz
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-
 			->addImage('image', [
 				'label' => 'Obraz',
 				'return_format' => 'array',
-				'preview_size' => 'medium',
-				'conditional_logic' => [
-					[['field' => 'use_video', 'operator' => '!=', 'value' => 1]] // pokazuj tylko gdy wideo = off
-				],
+				'preview_size' => 'thumbnail',
 			])
-
-			->addFile('video', [
-				'label' => 'Wideo (MP4/WebM/Ogg)',
-				'return_format' => 'array',
-				'mime_types' => 'mp4,webm,ogv',
-				'conditional_logic' => [
-					[['field' => 'use_video', 'operator' => '==', 'value' => 1]]
-				],
-			])
-
-			->addImage('video_poster', [
-				'label' => 'Poster (obrazek startowy)',
-				'return_format' => 'array',
-				'preview_size' => 'medium',
-				'conditional_logic' => [
-					[['field' => 'use_video', 'operator' => '==', 'value' => 1]]
-				],
-			])
-
 			->addText('title', ['label' => 'Tytuł'])
 			->addWysiwyg('txt', [
 				'label' => 'Treść',
@@ -87,38 +58,84 @@ class Hero extends Block
 				'label' => 'Przycisk #2',
 				'return_format' => 'array',
 			])
-
 			->endGroup()
 
-			->addTab('TLC w liczbach', ['placement' => 'top'])
-			->addRepeater('numbers', [
-				'label' => 'Funkcje',
-				'layout' => 'row', // 'row', 'block', albo 'table'
-				'min' => 1,
-				'max' => 3,
-				'button_label' => 'Dodaj'
+			/*--- TAB #2 ---*/
+			->addTab('Formularze', ['placement' => 'top'])
+			->addText('header', ['label' => 'Nagłówek'])
+			->addRepeater('r_hero', [
+				'label' => 'Kafelki',
+				'layout' => 'table', // 'row', 'block', albo 'table'
+				'button_label' => 'Dodaj kafelek'
 			])
-			->addText('number', [
-				'label' => 'Liczba',
+			->addImage('image', [
+				'label' => 'Ikona',
+				'return_format' => 'array', // lub 'url', lub 'id'
+				'preview_size' => 'thumbnail',
+				'wrapper' => [
+					'width' => '15', // Szerokość pola w %
+				],
 			])
-			->addText('opis', [
-				'label' => 'Opis',
+			->addText('title', [
+				'label' => 'Tytuł',
+				'wrapper' => [
+					'width' => '20', // Szerokość pola w %
+				],
+			])
+			->addText('shortcode', [
+				'label' => 'Formularz - Zdrowie',
+				'instructions' => 'Wklej kod formularza:  [contact-form-7 id="f12c470" title="Contact form 1"]',
+				'default_value' => '[contact-form-7 id="f12c470" title="Contact form 1"]',
 			])
 			->endRepeater()
 
-			->addTab('Ustawienia bloku', ['placement' => 'top'])
+			/*--- USTAWIENIA BLOKU ---*/
 
+			->addTab('Ustawienia bloku', ['placement' => 'top'])
+			->addText('section_id', [
+				'label' => 'ID',
+			])
+			->addText('section_class', [
+				'label' => 'Dodatkowe klasy CSS',
+			])
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
 			])
-			->addText('section_id', [
-				'label' => 'ID',
+			->addTrueFalse('wide', [
+				'label' => 'Szeroka kolumna',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
 			])
-			->addText('section_class', [
-				'label' => 'Dodatkowe klasy CSS',
+			->addTrueFalse('nomt', [
+				'label' => 'Usunięcie marginesu górnego',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('gap', [
+				'label' => 'Większy odstęp',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addSelect('background', [
+				'label' => 'Kolor tła',
+				'choices' => [
+					'none' => 'Brak (domyślne)',
+					'section-white' => 'Białe',
+					'section-light' => 'Jasne',
+					'section-gray' => 'Szare',
+					'section-brand' => 'Marki',
+					'section-gradient' => 'Gradient',
+					'section-dark' => 'Ciemne',
+				],
+				'default_value' => 'none',
+				'ui' => 0, // Ulepszony interfejs
+				'allow_null' => 0,
 			]);
 
 		return $hero;
@@ -128,10 +145,15 @@ class Hero extends Block
 	{
 		return [
 			'g_hero' => get_field('g_hero'),
-			'numbers' => get_field('numbers'),
-			'flip' => get_field('flip'),
+			'r_hero' => get_field('r_hero'),
+			'header' => get_field('header'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
+			'flip' => get_field('flip'),
+			'wide' => get_field('wide'),
+			'nomt' => get_field('nomt'),
+			'gap' => get_field('gap'),
+			'background' => get_field('background'),
 		];
 	}
 }

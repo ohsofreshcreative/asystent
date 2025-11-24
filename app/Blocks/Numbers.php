@@ -35,24 +35,41 @@ class Numbers extends Block
 				'open' => false,
 				'multi_expand' => true,
 			])
-			/*--- FIELDS ---*/
+			/*--- TAB #1 ---*/
 			->addTab('Treści', ['placement' => 'top'])
 			->addGroup('g_numbers', ['label' => ''])
-
-			->addText('header', ['label' => 'Tytuł'])
+			->addImage('image', [
+				'label' => 'Obraz',
+				'return_format' => 'array', // lub 'url', lub 'id'
+				'preview_size' => 'thumbnail',
+			])
+			->addWysiwyg('header', [
+				'label' => 'Nagłówek',
+				'tabs' => 'all',
+				'toolbar' => 'full',
+				'media_upload' => false,
+			])
 			->addWysiwyg('txt', [
 				'label' => 'Treść',
 				'tabs' => 'all',
 				'toolbar' => 'full',
-				'media_upload' => true,
+				'media_upload' => false,
 			])
+			->endGroup()
 
+			/*--- TAB #2 ---*/
+			->addTab('Liczby', ['placement' => 'top'])
 			->addRepeater('r_numbers', [
 				'label' => 'Kafelki',
 				'layout' => 'table', // 'row', 'block', albo 'table'
 				'min' => 4,
 				'max' => 4,
 				'button_label' => 'Dodaj kafelek'
+			])
+			->addImage('icon', [
+				'label' => 'Ikona',
+				'return_format' => 'array', // lub 'url', lub 'id'
+				'preview_size' => 'thumbnail',
 			])
 			->addText('title', [
 				'label' => 'Nagłówek',
@@ -64,10 +81,7 @@ class Numbers extends Block
 			])
 			->endRepeater()
 
-			->endGroup()
-
 			/*--- USTAWIENIA BLOKU ---*/
-
 			->addTab('Ustawienia bloku', ['placement' => 'top'])
 			->addText('section_id', [
 				'label' => 'ID',
@@ -99,29 +113,21 @@ class Numbers extends Block
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
 			])
-			->addTrueFalse('lightbg', [
-				'label' => 'Jasne tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('slightbg', [
-				'label' => 'Alternatywne tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('whitebg', [
-				'label' => 'Białe tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('brandbg', [
-				'label' => 'Tło marki',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
+			->addSelect('background', [
+				'label' => 'Kolor tła',
+				'choices' => [
+					'none' => 'Brak (domyślne)',
+					'section-white' => 'Białe',
+					'section-light' => 'Jasne',
+					'section-gray' => 'Szare',
+					'section-brand' => 'Marki',
+					'section-gradient-light' => 'Gradient jasny',
+					'section-gradient' => 'Gradient',
+					'section-dark' => 'Ciemne',
+				],
+				'default_value' => 'none',
+				'ui' => 0, // Ulepszony interfejs
+				'allow_null' => 0,
 			]);
 
 		return $numbers;
@@ -131,16 +137,14 @@ class Numbers extends Block
 	{
 		return [
 			'g_numbers' => get_field('g_numbers'),
+			'r_numbers' => get_field('r_numbers'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
 			'flip' => get_field('flip'),
 			'wide' => get_field('wide'),
 			'nomt' => get_field('nomt'),
 			'gap' => get_field('gap'),
-			'lightbg' => get_field('lightbg'),
-			'slightbg' => get_field('slightbg'),
-			'whitebg' => get_field('whitebg'),
-			'brandbg' => get_field('brandbg'),
+			'background' => get_field('background'),
 		];
 	}
 }

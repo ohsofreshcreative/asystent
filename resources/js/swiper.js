@@ -47,28 +47,6 @@ const swiper = new Swiper(swiperContainer, swiperReviews);
 /*--- SWIPER ---*/
 
 document.addEventListener('DOMContentLoaded', () => {
-  const swipers = document.querySelectorAll('.swiper');
-
-  if (swipers.length > 0) {
-    swipers.forEach((container) => {
-      new Swiper(container, {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        pagination: {
-          el: container.querySelector('.swiper-pagination'),
-          clickable: true,
-        },
-        navigation: {
-          nextEl: container.querySelector('.swiper-button-next'),
-          prevEl: container.querySelector('.swiper-button-prev'),
-        },
-      });
-    });
-  }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
   const swipers = document.querySelectorAll('.usage-swiper');
 
   if (swipers.length > 0) {
@@ -90,31 +68,35 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const swipers = document.querySelectorAll('.reviews-swiper');
-
-  if (swipers.length > 0) {
-    swipers.forEach((container) => {
-      new Swiper(container, {
-        spaceBetween: 30,
-        loop: true,
-        breakpoints: {
-          0: { slidesPerView: 1.2, spaceBetween: 20 },
-          768: { slidesPerView: 2.5, spaceBetween: 30 },
-          1024: { slidesPerView: 3.2, spaceBetween: 32 },
+ // Swiper dla '.reviews-swiper'
+  document.querySelectorAll('.reviews-swiper').forEach(container => {
+    new Swiper(container, {
+      modules: [Navigation, Pagination],
+      loop: true,
+      breakpoints: {
+        0: { 
+          slidesPerView: 1.6, 
+          spaceBetween: 20 
         },
-        pagination: {
-          el: container.querySelector('.swiper-pagination'),
-          clickable: true,
+        768: { 
+          slidesPerView: 2.6, 
+          spaceBetween: 30 
         },
-        navigation: {
-          nextEl: container.querySelector('.swiper-button-next'),
-          prevEl: container.querySelector('.swiper-button-prev'),
+        1024: { 
+          slidesPerView: 2.8, 
+          spaceBetween: 32 
         },
-      });
+      },
+      pagination: {
+        el: container.querySelector('.swiper-pagination'),
+        clickable: true,
+      },
+      navigation: {
+        nextEl: container.querySelector('.swiper-button-next'),
+        prevEl: container.querySelector('.swiper-button-prev'),
+      },
     });
-  }
-});
+  });
 
 document.addEventListener('DOMContentLoaded', () => {
   const swipers = document.querySelectorAll('.offer-swiper');

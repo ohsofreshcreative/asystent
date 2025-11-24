@@ -36,18 +36,22 @@ class Proces extends Block
 				'multi_expand' => true,
 			])
 			/*--- FIELDS ---*/
+			->addTab('Treść', ['placement' => 'top'])
+
+			->addGroup('g_proces', ['label' => ''])
+			->addText('title', ['label' => 'Tytuł'])
+			->endGroup()
+
 			->addTab('Kafelki', ['placement' => 'top'])
-			->addText('header', ['label' => 'Nagłówek'])
 			->addRepeater('r_proces', [
-				'label' => 'Proces',
+				'label' => 'proces',
 				'layout' => 'table', // 'row', 'block', albo 'table'
 				'min' => 3,
-				'button_label' => 'Dodaj element oferty'
+				'min' => 3,
+				'button_label' => 'Dodaj krok procesu'
 			])
-			->addImage('image', [
-				'label' => 'Obraz',
-				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'medium',
+			->addText('title', [
+				'label' => 'Krok',
 			])
 			->addText('header', [
 				'label' => 'Nagłówek',
@@ -90,36 +94,21 @@ class Proces extends Block
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
 			])
-			->addTrueFalse('lightbg', [
-				'label' => 'Jasne tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('graybg', [
-				'label' => 'Szare tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('whitebg', [
-				'label' => 'Białe tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('brandbg', [
-				'label' => 'Tło marki',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('darkbg', [
-				'label' => 'Ciemne tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			]);
+			->addSelect('background', [
+                'label' => 'Kolor tła',
+                'choices' => [
+                    'none' => 'Brak (domyślne)',
+                    'section-white' => 'Białe',
+                    'section-light' => 'Jasne',
+                    'section-gray' => 'Szare',
+                    'section-brand' => 'Marki',
+                    'section-gradient' => 'Gradient',
+                    'section-dark' => 'Ciemne',
+                ],
+                'default_value' => 'none',
+                'ui' => 0, // Ulepszony interfejs
+                'allow_null' => 0,
+            ]);
 
 		return $proces;
 	}
@@ -127,7 +116,7 @@ class Proces extends Block
 	public function with()
 	{
 		return [
-			'header' => get_field('header'),
+			'g_proces' => get_field('g_proces'),
 			'r_proces' => get_field('r_proces'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
@@ -135,11 +124,7 @@ class Proces extends Block
 			'wide' => get_field('wide'),
 			'nomt' => get_field('nomt'),
 			'gap' => get_field('gap'),
-			'lightbg' => get_field('lightbg'),
-			'graybg' => get_field('graybg'),
-			'whitebg' => get_field('whitebg'),
-			'brandbg' => get_field('brandbg'),
-			'darkbg' => get_field('darkbg'),
+			'background' => get_field('background'),
 		];
 	}
 }

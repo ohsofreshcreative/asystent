@@ -4,31 +4,32 @@ $sectionClass .= $flip ? ' order-flip' : '';
 $sectionClass .= $wide ? ' wide' : '';
 $sectionClass .= $nomt ? ' !mt-0' : '';
 $sectionClass .= $gap ? ' wider-gap' : '';
-$sectionClass .= $lightbg ? ' section-light' : '';
-$sectionClass .= $graybg ? ' section-gray' : '';
-$sectionClass .= $whitebg ? ' section-white' : '';
-$sectionClass .= $brandbg ? ' section-brand' : '';
-$sectionClass .= $darkbg ? ' section-dark' : '';
+
+if (!empty($background) && $background !== 'none') {
+$sectionClass .= ' ' . $background;
+}
 @endphp
 
 <!--- proces --->
 
-<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="proces -smt {{ $sectionClass }} {{ $section_class }}">
+<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-proces -smt {{ $sectionClass }}">
 	<div class="__wrapper c-main">
-		<h2 class="w-full md:w-1/2">{{ $header }}</h2>
+		@if (!empty($g_proces['title']))
+		<h2 data-gsap-element="header" class="w-full md:w-1/2">{{ strip_tags($g_proces['title']) }}</h2>
+		@endif
+
 		@if (!empty($r_proces))
-		<div class="__repeater">
+		<div class="__repeater gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-16">
+
 			@foreach ($r_proces as $item)
-			<div class="__card grid grid-cols-1 lg:grid-cols-2 section-gap items-center border-top-p pt-20 mt-20">
-				<img class="__img w-full img-l object-cover" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}" />
-				<div class="__content">
-					<h3>{{ $loop->iteration }}.</h3>
-					<h5 class="mt-4">{{ $item['header'] }}</h5>
-					<p class="mt-2">{{ $item['txt'] }}</p>
-				</div>
+			<div data-gsap-element="stagger" class="flex flex-col justify-between rounded-3xl border-p-lighter px-6 py-6 md:px-18 md:py-10">
+				<h4 class="mt-4">{{ $item['title'] }}</h4>
+				<h6 class="mt-4">{{ $item['header'] }}</h6>
+				<p class="mt-30">{{ $item['txt'] }}</p>
 			</div>
 			@endforeach
 		</div>
+		<div class="__line absolute bg-primary z-0 origin-left scale-x-0"></div>
 		@endif
 	</div>
 

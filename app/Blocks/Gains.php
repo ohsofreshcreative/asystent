@@ -5,14 +5,14 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Path extends Block
+class Gains extends Block
 {
-	public $name = 'Proces - Kafelki na dole';
-	public $description = 'path';
-	public $slug = 'path';
+	public $name = 'Ile zyskali klienci';
+	public $description = 'gains';
+	public $slug = 'gains';
 	public $category = 'formatting';
-	public $icon = 'randomize';
-	public $keywords = ['path'];
+	public $icon = 'chart-area';
+	public $keywords = ['gains', 'kafelki'];
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
@@ -22,45 +22,41 @@ class Path extends Block
 
 	public function fields()
 	{
-		$path = new FieldsBuilder('path');
+		$gains = new FieldsBuilder('gains');
 
-		$path
-			->setLocation('block', '==', 'acf/path') // ważne!
+		$gains
+			->setLocation('block', '==', 'acf/gains') // ważne!
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Proces - Kafelki na dole',
+				'label' => 'Ile zyskali klienci',
 				'open' => false,
 				'multi_expand' => true,
 			])
-			/*--- FIELDS ---*/
-			->addTab('Treść', ['placement' => 'top'])
-
-			->addGroup('g_path', ['label' => ''])
-			->addText('subtitle', ['label' => 'Śródtytuł'])
+			/*--- TAB #1 ---*/
+			->addTab('Treści', ['placement' => 'top'])
+			->addGroup('g_gains', ['label' => ''])
 			->addImage('image', [
 				'label' => 'Obraz',
 				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'medium',
+				'preview_size' => 'thumbnail',
 			])
-			->addText('title', ['label' => 'Tytuł'])
-			->addWysiwyg('txt', [
-				'label' => 'Treść',
-				'tabs' => 'all', // 'visual', 'text', 'all'
-				'toolbar' => 'full', // 'basic', 'full'
-				'media_upload' => true,
+			->addText('header', ['label' => 'Nagłówek'])
+			->addLink('button', [
+				'label' => 'Przycisk',
+				'return_format' => 'array',
 			])
 			->endGroup()
 
+			/*--- TAB #2 ---*/
 			->addTab('Kafelki', ['placement' => 'top'])
-			->addRepeater('r_path', [
-				'label' => 'path',
+			->addRepeater('r_gains', [
+				'label' => 'Kafelki',
 				'layout' => 'table', // 'row', 'block', albo 'table'
-				'min' => 4,
-				'min' => 4,
-				'button_label' => 'Dodaj element oferty'
+				'min' => 1,
+				'button_label' => 'Dodaj kafelek'
 			])
 			->addImage('image', [
 				'label' => 'Obraz',
@@ -68,10 +64,16 @@ class Path extends Block
 				'preview_size' => 'medium',
 			])
 			->addText('title', [
-				'label' => 'Krok',
+				'label' => 'Nagłówek',
 			])
-			->addTextarea('txt', [
-				'label' => 'Opis',
+			->addText('oc', [
+				'label' => 'Ubezpieczyciel wypłacił',
+			])
+			->addText('gain', [
+				'label' => 'Odzyskaliśmy',
+			])
+			->addText('client', [
+				'label' => 'Razem klient otrzymał',
 			])
 			->endRepeater()
 
@@ -108,49 +110,35 @@ class Path extends Block
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
 			])
-			->addTrueFalse('lightbg', [
-				'label' => 'Jasne tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('slightbg', [
-				'label' => 'Alternatywne tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('whitebg', [
-				'label' => 'Białe tło',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('brandbg', [
-				'label' => 'Tło marki',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			]);
+			->addSelect('background', [
+                'label' => 'Kolor tła',
+                'choices' => [
+                    'none' => 'Brak (domyślne)',
+                    'section-white' => 'Białe',
+                    'section-light' => 'Jasne',
+                    'section-gray' => 'Szare',
+                    'section-brand' => 'Marki',
+                    'section-gradient' => 'Gradient',
+                    'section-dark' => 'Ciemne',
+                ],
+                'default_value' => 'none',
+                'ui' => 0, // Ulepszony interfejs
+                'allow_null' => 0,
+            ]);
 
-		return $path;
+		return $gains;
 	}
 
 	public function with()
 	{
 		return [
-			'g_path' => get_field('g_path'),
-			'r_path' => get_field('r_path'),
-			'section_id' => get_field('section_id'),
-			'section_class' => get_field('section_class'),
+			'g_gains' => get_field('g_gains'),
+			'r_gains' => get_field('r_gains'),
 			'flip' => get_field('flip'),
 			'wide' => get_field('wide'),
 			'nomt' => get_field('nomt'),
 			'gap' => get_field('gap'),
-			'lightbg' => get_field('lightbg'),
-			'slightbg' => get_field('slightbg'),
-			'whitebg' => get_field('whitebg'),
-			'brandbg' => get_field('brandbg'),
+			'background' => get_field('background'),
 		];
 	}
 }
