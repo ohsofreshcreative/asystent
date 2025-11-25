@@ -11,12 +11,20 @@
 
   .__card .__img img {
     width: 100%;
-    height: auto;
     display: block;
     transition: transform 0.4s ease-in-out;
   }
 
   .__card:hover .__img img {
     transform: scale(1.1);
+  }
+
+  .__card h6 {
+	min-height: 96px;
+	min-height: 96px;
+  }
+
+  .__card:hover h6 a {
+	color:var(--primary) !important;
   }
 }

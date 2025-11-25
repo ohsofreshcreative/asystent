@@ -1,3 +1,13 @@
 .b-cards {
-
+	.__card{
+		img.__arrow {
+			transition: all 0.5s;
+		}
+	}
+	.__card:hover {
+		img.__arrow {
+			transform: translateX(100%);
+			transition: all 0.5s;
+		}
+	}
 }

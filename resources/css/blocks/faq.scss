@@ -1,24 +1,24 @@
-.b-accordion {
+.b-faq {
   /*Section used for centering process*/
-  input.acc-check {
+  input.acc-checkbox {
     position: absolute !important;
     opacity: 0 !important;
     z-index: -1 !important;
   }
-  .accordion-wrapper {
+  .faq-wrapper {
     /*     padding-bottom: 15px;
     margin-bottom: 15px; */
   }
-  .accordion-wrapper:last-child {
+  .faq-wrapper:last-child {
     border-bottom: none;
   }
-  .accordion {
+  .faq {
     width: 100%;
     overflow: hidden;
     margin-bottom: 16px !important;
     border: 1px solid var(--border);
   }
-  .accordion-label {
+  .faq-label {
     padding: 16px 0;
     margin-bottom: 0px !important;
     cursor: pointer;
@@ -27,16 +27,16 @@
     justify-content: space-between;
     align-items: center;
   }
-  .accordion-label:hover {
+  .faq-label:hover {
   }
-  .accordion-label::after {
+  .faq-label::after {
     content: url('http://asystent.local/wp-content/uploads/2025/11/plus.svg');
     text-align: right;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
     float: right;
   }
-  .accordion-content {
+  .faq-content {
     max-height: 0;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
@@ -47,25 +47,25 @@
 		padding-bottom:8px;
 	}
   }
-  .accordion-content p {
+  .faq-content p {
     margin: 0;
     color: var(--body);
     font-size: 16px;
   }
-  .accordion-content ul {
+  .faq-content ul {
     list-style-type: disc;
     padding-left: 16px;
   }
   input:checked {
     border: 1px solid var(--primary);
   }
-   input:checked ~ div .accordion-label::after {
+   input:checked ~ div .faq-label::after {
     content: url('http://asystent.local/wp-content/uploads/2025/11/minus.svg');
   }
-  .accordion:has(input:checked) {
+  .faq:has(input:checked) {
     padding-bottom: 24px;
   }
-  input:checked ~ .accordion-content {
+  input:checked ~ .faq-content {
     max-height: 1200px;
     padding: 8px 24px 0px 0px;
   }

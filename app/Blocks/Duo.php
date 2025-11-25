@@ -5,71 +5,58 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Cards extends Block
+class Duo extends Block
 {
-	public $name = 'Kafelki z obrazem';
-	public $description = 'cards';
-	public $slug = 'cards';
+	public $name = 'Tekst - Dwie kolumny';
+	public $description = 'duo';
+	public $slug = 'duo';
 	public $category = 'formatting';
-	public $icon = 'ellipsis';
-	public $keywords = ['cards', 'kafelki'];
+	public $icon = 'columns';
+	public $keywords = ['tresc', 'dwie kolumny', 'duo'];
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
 		'mode' => false,
 		'jsx' => true,
+		'anchor' => true,
+		'customClassName' => true,
 	];
 
 	public function fields()
 	{
-		$cards = new FieldsBuilder('cards');
+		$duo = new FieldsBuilder('duo');
 
-		$cards
-			->setLocation('block', '==', 'acf/cards') // ważne!
+		$duo
+			->setLocation('block', '==', 'acf/duo') // ważne!
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Kafelki',
+				'label' => 'Tekst - Dwie kolumny',
 				'open' => false,
 				'multi_expand' => true,
 			])
-			/*--- TAB #1 ---*/
-			->addTab('Treści', ['placement' => 'top'])
-			->addGroup('g_cards', ['label' => ''])
-			->addText('header', ['label' => 'Nagłówek'])
-			->addTextarea('text', [
-				'label' => 'Opis',
-				'rows' => 4,
-				'new_lines' => 'br',
+			/*--- GROUP ---*/
+			->addTab('Elementy', ['placement' => 'top'])
+			->addGroup('g_duo', ['label' => ''])
+			->addImage('image', [
+				'label' => 'Obraz',
+				'return_format' => 'array', // lub 'url', lub 'id'
+				'preview_size' => 'thumbnail',
+			])
+			->addText('title', ['label' => 'Tytuł'])
+			->addWysiwyg('txt', [
+				'label' => 'Treść',
+				'tabs' => 'all', // 'visual', 'text', 'all'
+				'toolbar' => 'full', // 'basic', 'full'
+				'media_upload' => true,
 			])
 			->addLink('button', [
 				'label' => 'Przycisk',
 				'return_format' => 'array',
 			])
 			->endGroup()
-
-			/*--- TAB #2 ---*/
-			->addTab('Kafelki', ['placement' => 'top'])
-			->addRepeater('r_cards', [
-				'label' => 'Kafelki',
-				'layout' => 'table', // 'row', 'block', albo 'table'
-				'min' => 1,
-				'button_label' => 'Dodaj kafelek'
-			])
-			->addImage('image', [
-				'label' => 'Obraz',
-				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'medium',
-			])
-			->addText('title', [
-				'label' => 'Nagłówek',
-			])
-			->addTextarea('text', [
-				'label' => 'Opis',
-			])
-			->endRepeater()
 
 			/*--- USTAWIENIA BLOKU ---*/
 
@@ -120,14 +107,13 @@ class Cards extends Block
                 'allow_null' => 0,
             ]);
 
-		return $cards;
+		return $duo;
 	}
 
 	public function with()
 	{
 		return [
-			'g_cards' => get_field('g_cards'),
-			'r_cards' => get_field('r_cards'),
+			'g_duo' => get_field('g_duo'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
 			'flip' => get_field('flip'),

@@ -5,14 +5,14 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Cards extends Block
+class Values extends Block
 {
-	public $name = 'Kafelki z obrazem';
-	public $description = 'cards';
-	public $slug = 'cards';
+	public $name = 'Wartości i misja';
+	public $description = 'values';
+	public $slug = 'values';
 	public $category = 'formatting';
-	public $icon = 'ellipsis';
-	public $keywords = ['cards', 'kafelki'];
+	public $icon = 'star-filled';
+	public $keywords = ['values', 'kafelki'];
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
@@ -22,37 +22,33 @@ class Cards extends Block
 
 	public function fields()
 	{
-		$cards = new FieldsBuilder('cards');
+		$values = new FieldsBuilder('values');
 
-		$cards
-			->setLocation('block', '==', 'acf/cards') // ważne!
+		$values
+			->setLocation('block', '==', 'acf/values') // ważne!
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Kafelki',
+				'label' => 'Wartości i misja',
 				'open' => false,
 				'multi_expand' => true,
 			])
 			/*--- TAB #1 ---*/
 			->addTab('Treści', ['placement' => 'top'])
-			->addGroup('g_cards', ['label' => ''])
+			->addGroup('g_values', ['label' => ''])
 			->addText('header', ['label' => 'Nagłówek'])
-			->addTextarea('text', [
+			->addWysiwyg('text', [
 				'label' => 'Opis',
 				'rows' => 4,
 				'new_lines' => 'br',
-			])
-			->addLink('button', [
-				'label' => 'Przycisk',
-				'return_format' => 'array',
 			])
 			->endGroup()
 
 			/*--- TAB #2 ---*/
 			->addTab('Kafelki', ['placement' => 'top'])
-			->addRepeater('r_cards', [
+			->addRepeater('r_values', [
 				'label' => 'Kafelki',
 				'layout' => 'table', // 'row', 'block', albo 'table'
 				'min' => 1,
@@ -80,6 +76,18 @@ class Cards extends Block
 			->addText('section_class', [
 				'label' => 'Dodatkowe klasy CSS',
 			])
+			->addTrueFalse('nomt', [
+				'label' => 'Usunięcie marginesu górnego',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('smt', [
+				'label' => 'Dodanie marginesu górnego',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',
 				'ui' => 1,
@@ -88,12 +96,6 @@ class Cards extends Block
 			])
 			->addTrueFalse('wide', [
 				'label' => 'Szeroka kolumna',
-				'ui' => 1,
-				'ui_on_text' => 'Tak',
-				'ui_off_text' => 'Nie',
-			])
-			->addTrueFalse('nomt', [
-				'label' => 'Usunięcie marginesu górnego',
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
@@ -120,19 +122,20 @@ class Cards extends Block
                 'allow_null' => 0,
             ]);
 
-		return $cards;
+		return $values;
 	}
 
 	public function with()
 	{
 		return [
-			'g_cards' => get_field('g_cards'),
-			'r_cards' => get_field('r_cards'),
+			'g_values' => get_field('g_values'),
+			'r_values' => get_field('r_values'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
 			'flip' => get_field('flip'),
 			'wide' => get_field('wide'),
 			'nomt' => get_field('nomt'),
+			'smt' => get_field('smt'),
 			'gap' => get_field('gap'),
 			'background' => get_field('background'),
 		];

@@ -5,7 +5,7 @@ $sectionClass .= $flip ? ' order-flip' : '';
 
 <!--- cta --->
 
-<section data-gsap-anim="section" class="cta pt-10 {{ $sectionClass }}">
+<section data-gsap-anim="section" class="cta pt-10 {{ $sectionClass }} {{ $section_class }}">
 	<div data-gsap-element="wrapper" class="__wrapper">
 
 		<div class="grid grid-cols-1 md:grid-cols-2 items-center gap-10 rounded-xl bg-p-bright border-p-light p-4">

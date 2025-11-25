@@ -17,6 +17,14 @@
 @import '../css/blocks/gains.scss';
 @import '../css/blocks/reviews.scss';
 @import '../css/blocks/proces.scss';
+@import '../css/blocks/target.scss';
+@import '../css/blocks/accordion.scss';
+@import '../css/blocks/category-posts.scss';
+@import '../css/blocks/faq.scss';
+@import '../css/blocks/cards.scss';
+@import '../css/blocks/hero-sub.scss';
+@import '../css/blocks/duo.scss';
+@import '../css/blocks/values.scss';
 
 /*-- NOT USED --*/
 @import '../css/blocks/tlc.scss';
@@ -28,17 +36,13 @@
 @import '../css/blocks/hero-cat.scss';
 @import '../css/blocks/selection.scss';
 @import '../css/blocks/order.scss';
-@import '../css/blocks/cards.scss';
 @import '../css/blocks/product-hero.scss';
-@import '../css/blocks/hero-sub.scss';
 @import '../css/blocks/hero-offer.scss';
 
 @import '../css/blocks/categories.scss';
 @import '../css/blocks/area-block.scss';
 @import '../css/blocks/cases.scss';
 @import '../css/blocks/history.scss';
-@import '../css/blocks/category-posts.scss';
-@import '../css/blocks/accordion.scss';
 @import '../css/blocks/cases-slider.scss';
 @import '../css/blocks/steps.scss';
 @import '../css/blocks/contact.scss';

@@ -12,7 +12,7 @@ $sectionClass .= ' ' . $background;
 
 <!--- gains --->
 
-<section data-gsap-anim="section" class="b-gains -smt {{ $sectionClass }}">
+<section data-gsap-anim="section" class="b-gains -smt {{ $sectionClass }} {{ $section_class }}">
 	<div class="__wrapper c-main relative">
 		<div class="">
 

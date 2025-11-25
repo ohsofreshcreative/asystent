@@ -1,101 +1,143 @@
 .b-hero {
-  .__tab:first-child {
-    border-top-left-radius:16px;
-  }
-  .__tab:last-child {
-    border-top-right-radius: 16px;
-  }
-  .__tab {
-	border:1px solid transparent;
-  }
-  .__tab:hover {
-	background-color: var(--p-50);
-	border-bottom:1px solid var(--border-p-light);
-  }
+	.__txt {
+		p {
+			margin-bottom: 16px;
+		}
 
-   /*--- !INPUT CONTACT ---*/
-.tabs__content { 
-	label {
-		display: block;
-		font-weight: 600;
-		font-size:14px;
-		color:var(--primary);
-		margin-bottom:4px;
-		margin-top:12px;
-	}
-    input[type='text'],
-    input[type='tel'],
-    input[type='email'],
-    select,
-    textarea {
-      width: 100%;
-      background-color: transparent;
-      border: none;
-      color: var(--p-500);
-      border: 2px solid var(--border-p);
-      padding: 12px 16px;
-      transition: all 0.2s ease-out;
-      border-radius: 4px;
-      font-size: 16px;
-    }
+		p:last-child {
+			margin-bottom: 0 !important;
+		}
 
-    input::placeholder,
-    textarea::placeholder {
-      color: #686b70;
-      opacity: 1;
-    }
+		ul {
+			margin-top: 8px;
+			margin-bottom: 24px;
+			list-style: none;
+			padding-left: 0;
 
-    input[type='text']:focus,
-    input[type='tel']:focus,
-    input[type='email']:focus,
-    textarea:focus {
-      width: 100%;
-      border: 2px dashed var(--p-600);
-      outline: none;
-      transition: all 0.2s ease-out;
-    }
-
-    textarea {
-      height: 120px;
-    }
-
-	.wpcf7-list-item {
-		margin-left:0 !important;
-		label {
-			display: flex;
-			align-items: start;
-			font-weight: 400;
-			color:var(--body);
-			input[type='checkbox'] {
-				top:4px;
+			li {
 				position: relative;
+				padding-left: 24px;
+				margin-bottom: 0.5em;
+
+				&::before {
+					content: '';
+					position: absolute;
+					left: 0;
+					top: 4px;
+					width: 16px;
+					height: 16px;
+					background-image: url('http://asystent.local/wp-content/uploads/2025/11/check.svg');
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-position: center;
+				}
 			}
 		}
 	}
 
-    input[type='submit'] {
-      font-size: 16px;
-      background: var(--secondary);
-      color: #fff;
-      padding: 15px 45px;
-      display: inline-block;
-      transition: all 0.2s ease-out;
-      border-radius: 8px;
-      font-weight: 600;
-      border: 1px solid transparent;
-      text-decoration: none;
-      white-space: nowrap;
-      width: unset !important;
-      margin-top: 24px;
-      cursor: pointer;
-    }
+		.__tab:first-child {
+			border-top-left-radius: 16px;
+		}
 
-    input[type='submit']:hover {
-      color: #fff;
-      background: var(--s-hover);
-      transition: all 0.2s ease-out;
-      border: 1px solid transparent;
-    }
-	
-}
+		.__tab:last-child {
+			border-top-right-radius: 16px;
+		}
+
+		.__tab {
+			border: 1px solid transparent;
+		}
+
+		.__tab:hover {
+			background-color: var(--p-50);
+			border-bottom: 1px solid var(--border-p-light);
+		}
+
+		/*--- !INPUT CONTACT ---*/
+		.tabs__content {
+			label {
+				display: block;
+				font-weight: 600;
+				font-size: 14px;
+				color: var(--primary);
+				margin-bottom: 4px;
+				margin-top: 12px;
+			}
+
+			input[type='text'],
+			input[type='tel'],
+			input[type='email'],
+			select,
+			textarea {
+				width: 100%;
+				background-color: transparent;
+				border: none;
+				color: var(--p-500);
+				border: 2px solid var(--border-p);
+				padding: 12px 16px;
+				transition: all 0.2s ease-out;
+				border-radius: 4px;
+				font-size: 16px;
+			}
+
+			input::placeholder,
+			textarea::placeholder {
+				color: #686b70;
+				opacity: 1;
+			}
+
+			input[type='text']:focus,
+			input[type='tel']:focus,
+			input[type='email']:focus,
+			textarea:focus {
+				width: 100%;
+				border: 2px dashed var(--p-600);
+				outline: none;
+				transition: all 0.2s ease-out;
+			}
+
+			textarea {
+				height: 120px;
+			}
+
+			.wpcf7-list-item {
+				margin-left: 0 !important;
+
+				label {
+					display: flex;
+					align-items: start;
+					font-weight: 400;
+					color: var(--body);
+
+					input[type='checkbox'] {
+						top: 4px;
+						position: relative;
+					}
+				}
+			}
+
+			input[type='submit'] {
+				font-size: 16px;
+				background: var(--secondary);
+				color: #fff;
+				padding: 15px 45px;
+				display: inline-block;
+				transition: all 0.2s ease-out;
+				border-radius: 8px;
+				font-weight: 600;
+				border: 1px solid transparent;
+				text-decoration: none;
+				white-space: nowrap;
+				width: unset !important;
+				margin-top: 24px;
+				cursor: pointer;
+			}
+
+			input[type='submit']:hover {
+				color: #fff;
+				background: var(--s-hover);
+				transition: all 0.2s ease-out;
+				border: 1px solid transparent;
+			}
+
+		}
 }

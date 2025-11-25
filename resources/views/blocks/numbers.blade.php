@@ -12,7 +12,7 @@ $sectionClass .= ' ' . $background;
 
 <!--- numbers --->
 
-<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-numbers relative -smt {{ $sectionClass }}">
+<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-numbers relative -smt {{ $sectionClass }} {{ $section_class }}">
 
 	<div class="__wrapper c-main relative z-10">
 		<div class="grid grid-cols-1 md:grid-cols-2 items-center gap-16">
@@ -34,7 +34,7 @@ $sectionClass .= ' ' . $background;
 
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-10">
 			@foreach ($r_numbers as $item)
-			<div data-gsap-element="stagger" class="__card relative border-p-lighter radius p-8">
+			<div data-gsap-element="stagger" class="__card relative border-p-lighter radius p-8"> 
 				@if (!empty($item['icon']['url']))
 				<img class="mb-6" src="{{ $item['icon']['url'] }}" alt="{{ $item['icon']['alt'] ?? '' }}" />
 				@endif

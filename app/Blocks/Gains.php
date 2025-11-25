@@ -134,6 +134,8 @@ class Gains extends Block
 		return [
 			'g_gains' => get_field('g_gains'),
 			'r_gains' => get_field('r_gains'),
+			'section_id' => get_field('section_id'),
+			'section_class' => get_field('section_class'),
 			'flip' => get_field('flip'),
 			'wide' => get_field('wide'),
 			'nomt' => get_field('nomt'),

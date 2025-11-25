@@ -11,7 +11,7 @@ url({$g_connect_1['image']['url']})" : '';
 
 <!--- connect --->
 
-<section data-gsap-anim="section" class="connect bg-s-lighter relative -smt pt-10 pb-30 {{ $sectionClass }}" style="background-image: {{ $backgroundImage }}; background-size: cover; background-position: center;">
+<section data-gsap-anim="section" class="connect bg-s-lighter relative -smt pt-10 pb-30 {{ $sectionClass }} {{ $section_class }}" style="background-image: {{ $backgroundImage }}; background-size: cover; background-position: center;">
 
 	<div class="__wrapper c-main relative z-2">
 

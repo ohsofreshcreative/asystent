@@ -13,7 +13,7 @@ $sectionClass .= ' ' . $background;
 
 <!--- offer --->
 
-<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-offer -smt {{ $sectionClass }}">
+<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-offer -smt {{ $sectionClass }} {{ $section_class }}">
 	<div class="__wrapper c-main">
 
 		<h2 class="text-center w-full md:w-3/4 m-auto">{{ strip_tags($g_offer['header']) }}</h2>

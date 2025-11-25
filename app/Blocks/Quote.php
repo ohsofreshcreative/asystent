@@ -52,6 +52,12 @@ class Quote extends Block
 				'toolbar' => 'full', // 'basic', 'full'
 				'media_upload' => true,
 			])
+			->addWysiwyg('added', [
+				'label' => 'Opis',
+				'tabs' => 'all', // 'visual', 'text', 'all'
+				'toolbar' => 'full', // 'basic', 'full'
+				'media_upload' => true,
+			])
 			->addLink('button', [
 				'label' => 'Przycisk',
 				'return_format' => 'array',

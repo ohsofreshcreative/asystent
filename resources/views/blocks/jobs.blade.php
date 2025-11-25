@@ -1,6 +1,6 @@
 @php $sectionClass = '';$sectionClass .= $flip ? ' order-flip' : '';$sectionClass .= $darkbg ? ' section-dark' : '';$sectionId = $block->data['id'] ?? null;$customClass = $block->data['className'] ?? '';@endphp
 
-<section data-gsap-anim="section" @if($sectionId) id="{{ $sectionId }}" @endif class="accordion faq relative overflow-hidden -smt {{ $block->classes }} {{ $customClass }} {{ $sectionClass }}">
+<section data-gsap-anim="section" @if($sectionId) id="{{ $sectionId }}" @endif class="accordion faq relative overflow-hidden -smt {{ $block->classes }} {{ $customClass }} {{ $sectionClass }} {{ $section_class }}">
 
 	<div class="__wrapper c-main relative z-2">
 		<h2 data-gsap-element="header" class="w-full lg:w-1/2">{{ $g_jobs['title'] }}</h2>

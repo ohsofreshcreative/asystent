@@ -14,14 +14,14 @@ $sectionClass .= ' ' . $background;
 <section
 	data-gsap-anim="section"
 	@if(!empty($section_id)) id="{{ $section_id }}" @endif
-	class="b-hero bg-primary relative {{ $sectionClass }}">
+	class="b-hero bg-primary relative section-py {{ $sectionClass }} {{ $section_class }}">
 
-	<div class="__wrapper c-wide h-screen grid grid-cols-1 lg:grid-cols-2 gap-40 items-center relative z-20">
+	<div class="__wrapper c-wide grid grid-cols-1 lg:grid-cols-2 gap-40 items-center relative z-20">
 		<div class="__content pt-20 pb-10 md:py-30">
 			<h2 data-gsap-element="header" class=" text-white">
 				{{ $g_hero['title'] ?? '' }}
 			</h2>
-			<div data-gsap-element="txt" class="text-white mt-2">
+			<div data-gsap-element="txt" class="__txt text-white mt-2">
 				{!! $g_hero['txt'] ?? '' !!}
 			</div>
 			@if (!empty($g_hero['button1']))

@@ -40,7 +40,13 @@ class HeroSub extends Block
 			->addImage('image', [
 				'label' => 'Obraz',
 				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'medium',
+				'preview_size' => 'thumbnail',
+				'required' => 1,
+			])
+			->addImage('bg', [
+				'label' => 'Tło',
+				'return_format' => 'array', // lub 'url', lub 'id'
+				'preview_size' => 'thumbnail',
 				'required' => 1,
 			])
 			->addText('header', [
@@ -53,28 +59,59 @@ class HeroSub extends Block
 				'placeholder' => 'Wpisz opis...',
 				'new_lines' => 'br',
 			])
-
+			->addLink('button', [
+				'label' => 'Przycisk',
+				'return_format' => 'array',
+			])
 			->endGroup()
 
-			->addTab('Ustawienia bloku', ['placement' => 'top'])
+			/*--- USTAWIENIA BLOKU ---*/
 
+			->addTab('Ustawienia bloku', ['placement' => 'top'])
+			->addText('section_id', [
+				'label' => 'ID',
+			])
+			->addText('section_class', [
+				'label' => 'Dodatkowe klasy CSS',
+			])
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
 			])
-			->addTrueFalse('gfx_top', [
-				'label' => 'Grafika górna',
+			->addTrueFalse('wide', [
+				'label' => 'Szeroka kolumna',
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
 			])
-			->addTrueFalse('gfx_bottom', [
-				'label' => 'Grafika dolna',
+			->addTrueFalse('nomt', [
+				'label' => 'Usunięcie marginesu górnego',
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('gap', [
+				'label' => 'Większy odstęp',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addSelect('background', [
+				'label' => 'Kolor tła',
+				'choices' => [
+					'none' => 'Brak (domyślne)',
+					'section-white' => 'Białe',
+					'section-light' => 'Jasne',
+					'section-gray' => 'Szare',
+					'section-brand' => 'Marki',
+					'section-gradient' => 'Gradient',
+					'section-dark' => 'Ciemne',
+				],
+				'default_value' => 'none',
+				'ui' => 0, // Ulepszony interfejs
+				'allow_null' => 0,
 			]);
 
 		return $hero_sub;
@@ -90,10 +127,7 @@ class HeroSub extends Block
 			'wide' => get_field('wide'),
 			'nomt' => get_field('nomt'),
 			'gap' => get_field('gap'),
-			'lightbg' => get_field('lightbg'),
-			'graybg' => get_field('graybg'),
-			'whitebg' => get_field('whitebg'),
-			'brandbg' => get_field('brandbg'),
+			'background' => get_field('background'),
 		];
 	}
 }

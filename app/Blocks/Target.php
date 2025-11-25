@@ -5,43 +5,45 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Hero extends Block
+class Target extends Block
 {
-	public $name = 'Hero';
-	public $description = 'Hero';
-	public $slug = 'hero';
-	public $category = 'formatting';
-	public $icon = 'align-full-width';
-	public $keywords = ['tresc', 'zdjecie'];
+	public $name = 'Dla kogo';
+	public $description = 'target';
+	public $slug = 'target';
+	public $category = 'targetmatting';
+	public $icon = 'admin-users';
+	public $keywords = ['tresc', 'galeria', 'logo', 'target'];
 	public $mode = 'edit';
 	public $supports = [
 		'align' => false,
 		'mode' => false,
 		'jsx' => true,
+		'anchor' => true,
+		'customClassName' => true,
 	];
 
 	public function fields()
 	{
-		$hero = new FieldsBuilder('hero');
+		$target = new FieldsBuilder('target');
 
-		$hero
-			->setLocation('block', '==', 'acf/hero') // ważne!
+		$target
+			->setLocation('block', '==', 'acf/target') // ważne!
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
 			])
 			->addAccordion('accordion1', [
-				'label' => 'Hero',
+				'label' => 'Dla kogo',
 				'open' => false,
 				'multi_expand' => true,
 			])
-			/*--- TAB #1 ---*/
-			->addTab('Treść', ['placement' => 'top'])
-			->addGroup('g_hero', ['label' => 'Hero'])
-			->addImage('image', [
-				'label' => 'Obraz',
-				'return_format' => 'array',
+			/*--- GROUP ---*/
+			->addTab('Elementy', ['placement' => 'top'])
+			->addGroup('g_target', ['label' => ''])
+			->addGallery('gallery', [
+				'label' => 'Logotypy',
 				'preview_size' => 'thumbnail',
+				'library' => 'all',
 			])
 			->addText('title', ['label' => 'Tytuł'])
 			->addWysiwyg('txt', [
@@ -50,44 +52,11 @@ class Hero extends Block
 				'toolbar' => 'full', // 'basic', 'full'
 				'media_upload' => true,
 			])
-			->addLink('button1', [
-				'label' => 'Przycisk #1',
-				'return_format' => 'array',
-			])
-			->addLink('button2', [
-				'label' => 'Przycisk #2',
-				'return_format' => 'array',
+			->addLink('button', [
+				'label' => 'Przycisk',
+				'return_targetmat' => 'array',
 			])
 			->endGroup()
-
-			/*--- TAB #2 ---*/
-			->addTab('Formularze', ['placement' => 'top'])
-			->addText('header', ['label' => 'Nagłówek'])
-			->addRepeater('r_hero', [
-				'label' => 'Kafelki',
-				'layout' => 'table', // 'row', 'block', albo 'table'
-				'button_label' => 'Dodaj kafelek'
-			])
-			->addImage('image', [
-				'label' => 'Ikona',
-				'return_format' => 'array', // lub 'url', lub 'id'
-				'preview_size' => 'thumbnail',
-				'wrapper' => [
-					'width' => '15', // Szerokość pola w %
-				],
-			])
-			->addText('title', [
-				'label' => 'Tytuł',
-				'wrapper' => [
-					'width' => '20', // Szerokość pola w %
-				],
-			])
-			->addText('shortcode', [
-				'label' => 'Formularz - Zdrowie',
-				'instructions' => 'Wklej kod formularza:  [contact-form-7 id="f12c470" title="Contact form 1"]',
-				'default_value' => '[contact-form-7 id="f12c470" title="Contact form 1"]',
-			])
-			->endRepeater()
 
 			/*--- USTAWIENIA BLOKU ---*/
 
@@ -130,7 +99,6 @@ class Hero extends Block
 					'section-light' => 'Jasne',
 					'section-gray' => 'Szare',
 					'section-brand' => 'Marki',
-					'section-gradient-light' => 'Gradient jasny',
 					'section-gradient' => 'Gradient',
 					'section-dark' => 'Ciemne',
 				],
@@ -139,15 +107,13 @@ class Hero extends Block
 				'allow_null' => 0,
 			]);
 
-		return $hero;
+		return $target;
 	}
 
 	public function with()
 	{
 		return [
-			'g_hero' => get_field('g_hero'),
-			'r_hero' => get_field('r_hero'),
-			'header' => get_field('header'),
+			'g_target' => get_field('g_target'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
 			'flip' => get_field('flip'),

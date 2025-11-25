@@ -35,13 +35,14 @@ class Proces extends Block
 				'open' => false,
 				'multi_expand' => true,
 			])
-			/*--- FIELDS ---*/
+			/*--- TAB #1 ---*/
 			->addTab('Treść', ['placement' => 'top'])
 
 			->addGroup('g_proces', ['label' => ''])
 			->addText('title', ['label' => 'Tytuł'])
 			->endGroup()
 
+			/*--- TAB #2 ---*/
 			->addTab('Kafelki', ['placement' => 'top'])
 			->addRepeater('r_proces', [
 				'label' => 'proces',
@@ -60,6 +61,21 @@ class Proces extends Block
 				'label' => 'Opis',
 			])
 			->endRepeater()
+
+			/*--- TAB #3 ---*/
+			->addTab('CTA', ['placement' => 'top'])
+			->addGroup('g_proces_2', ['label' => ''])
+			->addImage('image', [
+				'label' => 'Obraz',
+				'return_format' => 'array', // lub 'url', lub 'id'
+				'preview_size' => 'thumbnail',
+			])
+			->addText('title', ['label' => 'Tytuł'])
+			->addLink('button', [
+				'label' => 'Przycisk',
+				'return_format' => 'array',
+			])
+			->endGroup()
 
 			/*--- USTAWIENIA BLOKU ---*/
 
@@ -117,6 +133,7 @@ class Proces extends Block
 	{
 		return [
 			'g_proces' => get_field('g_proces'),
+			'g_proces_2' => get_field('g_proces_2'),
 			'r_proces' => get_field('r_proces'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),

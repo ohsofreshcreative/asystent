@@ -12,7 +12,7 @@ if (!empty($background) && $background !== 'none') {
 
 <!--- reviews --->
 
-<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-reviews -smt {{ $sectionClass }}">
+<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-reviews -smt {{ $sectionClass }} {{ $section_class }}">
 	<div class="__wrapper c-main relative">
 		<div class="__content">
 			<div class="__wrapper c-main block">
