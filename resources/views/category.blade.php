@@ -11,7 +11,7 @@ $category_description = get_field('category_description', $term);
 $category_image = get_field('category_image', $term);
 @endphp
 
-<div class="hero category-header -spt mb-10">
+<div class="hero category-header -spt mt-24 md:mt-0 mb-10">
 	<div class="__wrapper c-main">
 		<h2 class="primary text-center w-full md:w-3/4 mx-auto">
 			{!! $category_header ?: get_the_archive_title() !!}

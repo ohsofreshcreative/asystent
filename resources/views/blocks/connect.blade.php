@@ -12,7 +12,7 @@ $sectionClass .= ' ' . $background;
 
 <!--- connect --->
 
-<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-connect bg-gradient relative -smt pt-10 pb-30 {{ $sectionClass }} {{ $section_class }}">
+<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-connect bg-gradient relative -smt pt-24 pb-30 {{ $sectionClass }} {{ $section_class }}">
 
 	<div class="__wrapper c-main relative z-2">
 
@@ -31,7 +31,7 @@ $sectionClass .= ' ' . $background;
 				</div>
 			</div>
 
-			<div data-gsap-element="form" class="__form radius overflow-hidden border-p-lighter p-10 mt-10">
+			<div data-gsap-element="form" class="__form radius overflow-hidden border-p-lighter p-6 md:p-10 mt-10">
 				<h5 class="relative text-white mb-6 z-10">Formularz kontaktowy</h5>
 				<div class="relative z-10">{!! do_shortcode($g_connect_2['shortcode']) !!}</div>
 			</div>

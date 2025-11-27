@@ -28,7 +28,7 @@ $sectionClass .= ' ' . $background;
 		</div>
 
 		<div class="__img mt-20">
-			<img class="object-cover radius img-2xl w-full " src="{{ $g_duo['image']['url'] }}" alt="{{ $g_duo['image']['alt'] ?? '' }}" />
+			<img data-gsap-element="img" class="object-cover radius img-2xl w-full " src="{{ $g_duo['image']['url'] }}" alt="{{ $g_duo['image']['alt'] ?? '' }}" />
 		</div>
 	</div>
 

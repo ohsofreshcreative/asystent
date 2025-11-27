@@ -16,12 +16,12 @@ $sectionClass .= ' ' . $background;
 	@if(!empty($section_id)) id="{{ $section_id }}" @endif
 	class="b-hero bg-primary relative section-py {{ $sectionClass }} {{ $section_class }}">
 
-	<div class="__wrapper c-wide grid grid-cols-1 lg:grid-cols-2 gap-40 items-center relative z-20">
-		<div class="__content pt-20 pb-10 md:py-30">
+	<div class="__wrapper c-main grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center relative z-20">
+		<div class="__content pt-4 lg:pt-0">
 			<h2 data-gsap-element="header" class=" text-white">
 				{{ $g_hero['title'] ?? '' }}
 			</h2>
-			<div data-gsap-element="txt" class="__txt text-white mt-2">
+			<div data-gsap-element="txt" class="__txt text-white text-lg md:text-xl mt-6">
 				{!! $g_hero['txt'] ?? '' !!}
 			</div>
 			@if (!empty($g_hero['button1']))
@@ -41,7 +41,7 @@ $sectionClass .= ' ' . $background;
 			</div>
 			@endif
 		</div>
-		<div class="__forms">
+		<div data-gsap-element="form" class="__forms">
 			@if (!empty($header))
 			<h5 class="text-white">{{ $header }}</h5>
 			@endif
@@ -54,12 +54,12 @@ $sectionClass .= ' ' . $background;
 					<button
 						@click="activeTab = {{ $index }}"
 						:class="{ '': activeTab === {{ $index }}, 
-						'bg-light border-bottom-p cursor-pointer': activeTab !== {{ $index }} }"
+						'bg-p-lighter border-bottom-p cursor-pointer': activeTab !== {{ $index }} }"
 						class="__tab flex flex-col items-center justify-between gap-3 py-4 px-1 font-semibold text-body text-dark focus:outline-none transition-colors duration-150 ease-in-out border-right-p">
 						@if (!empty($item['image']))
 						<img src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] }}" class="w-8 h-8 object-contain">
 						@endif
-						<span>{{ $item['title'] }}</span>
+						<span class="text-sm text-body">{{ $item['title'] }}</span>
 					</button>
 					@endforeach
 				</div>

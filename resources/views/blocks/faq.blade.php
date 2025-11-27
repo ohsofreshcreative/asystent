@@ -18,7 +18,7 @@ if (!empty($background) && $background !== 'none') {
 
 		<div>
 			@if (!empty($faq['image']))
-			<img class="object-cover w-full __img img-xl order1" src="{{ $faq['image']['url'] }}" alt="{{ $faq['image']['alt'] ?? '' }}">
+			<img data-gsap-element="img" class="object-cover w-full __img img-xl order1" src="{{ $faq['image']['url'] }}" alt="{{ $faq['image']['alt'] ?? '' }}">
 			@endif
 			<div class="__content order2">
 				<h3 data-gsap-element="header" class="">{{ $faq['title'] }}</h3>
@@ -26,12 +26,12 @@ if (!empty($background) && $background !== 'none') {
 					{!! $faq['content'] !!}
 				</div>
 				@if (!empty($faq['button']))
-				<a class="main-btn m-btn" href="{{ $faq['button']['url'] }}">{{ $faq['button']['title'] }}</a>
+				<a data-gsap-element="btn" class="main-btn m-btn" href="{{ $faq['button']['url'] }}">{{ $faq['button']['title'] }}</a>
 				@endif
 			</div>
 		</div>
 
-		<div class="faq-wrapper grid">
+		<div data-gsap-element="accordion" class="faq-wrapper grid">
 			@foreach ($repeater as $item)
 					<div class="faq bg-white b-shadow rounded-2xl px-6 md:px-8 ">
 				<input

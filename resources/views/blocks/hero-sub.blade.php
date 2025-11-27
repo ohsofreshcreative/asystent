@@ -32,10 +32,10 @@ style="background-image:linear-gradient(90deg, rgba(0, 22, 114,1), rgba(0, 22, 1
 		</div>
 
 		<div class="__img relative">
-			<img class="relative z-10" src="{{ $g_hero_sub['image']['url'] }}" alt="{{ $g_hero_sub['image']['alt'] ?? '' }}">
-			<img class="absolute top-0 left-0" src="/wp-content/uploads/2025/11/white-shield.svg" />
+			<img data-gsap-element="img" class="relative z-10" src="{{ $g_hero_sub['image']['url'] }}" alt="{{ $g_hero_sub['image']['alt'] ?? '' }}">
+			<img data-gsap-element="img" class="absolute top-0 left-0" src="/wp-content/uploads/2025/11/white-shield.svg" />
 		</div>
 
 	</div>
-	<img class="absolute blur-xl -top-30 -left-10" src="/wp-content/uploads/2025/11/half_shield.svg" />
+	<img data-gsap-element="img" class="absolute blur-xl -top-30 -left-10" src="/wp-content/uploads/2025/11/half_shield.svg" />
 </section>

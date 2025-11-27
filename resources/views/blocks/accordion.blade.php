@@ -16,10 +16,10 @@ $sectionClass .= ' ' . $background;
 	<div class="__wrapper c-main">
 		<div class="grid grid-cols-1 lg:grid-cols-[1.3fr_2fr] gap-8 lg:gap-20">
 			@if (!empty($g_accordion['image']))
-			<img data-gsap-element="img-left" class="__img object-cover order1 h-full radius-img" src="{{ $g_accordion['image']['url'] }}" alt="{{ $g_accordion['image']['alt'] ?? '' }}">
+			<img data-gsap-element="img" class="__img object-cover order1 h-full radius-img" src="{{ $g_accordion['image']['url'] }}" alt="{{ $g_accordion['image']['alt'] ?? '' }}">
 			@endif
 			<div class="__content order2">
-				<h2 data-gsap-element="header" class="">{{ $g_accordion['title'] }}</h2>
+				<h3 data-gsap-element="header" class="m-header">{{ $g_accordion['title'] }}</h3>
 				<div data-gsap-element="txt" class="">{!! $g_accordion['txt'] !!}</div>
 				@if (!empty($g_accordion['button']))
 				<a class="main-btn m-btn" href="{{ $g_accordion['button']['url'] }}">{{ $g_accordion['button']['title'] }}</a>

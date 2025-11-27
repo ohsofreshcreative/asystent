@@ -15,7 +15,7 @@ if (!empty($background) && $background !== 'none') {
 	<div class="__wrapper">
 
 		@if (!empty($g_image['image']))
-		<img class="object-cover w-full __img img-xl order1" src="{{ $g_image['image']['url'] }}" alt="{{ $g_image['image']['alt'] ?? '' }}">
+		<img class="object-cover radius w-full __img img-xl order1" src="{{ $g_image['image']['url'] }}" alt="{{ $g_image['image']['alt'] ?? '' }}">
 		@endif
 
 	</div>

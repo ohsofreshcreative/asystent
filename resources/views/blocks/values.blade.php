@@ -14,7 +14,7 @@ $sectionClass .= ' ' . $background;
 
 <!--- values --->
 
-<section data-gsap-anim="section" class="b-values bg-gradient {{ $sectionClass }} {{ $section_class }}">
+<section data-gsap-anim="section" class="b-values bg-gradient pb-25 pt-50 md:pt-100 -mt-40 md:-mt-80  {{ $sectionClass }} {{ $section_class }}">
 	<div class="__wrapper c-main">
 
 		<div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-16">

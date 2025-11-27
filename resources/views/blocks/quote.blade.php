@@ -23,7 +23,7 @@ $sectionClass .= ' ' . $background;
 			<h4 data-gsap-element="header" class="m-header">{{ $g_quote['header'] }}</h4>
 			@endif
 
-			<div data-gsap-element="txt" class="text-4xl leading-normal text-body font-semibold">
+			<div data-gsap-element="txt" class="text-2xl md:text-4xl leading-normal text-body font-semibold">
 				{!! $g_quote['txt'] !!}
 			</div>
 
@@ -39,7 +39,7 @@ $sectionClass .= ' ' . $background;
 	</div>
 
 	@if (!empty($g_quote['image']))
-	<div data-gsap-element="img" class="__img absolute top-1/2 -translate-y-1/2 -left-20 pointer-events-none">
+	<div data-gsap-element="img" class="__img absolute opacity-30 top-1/2 -translate-y-1/2 -left-20 pointer-events-none">
 		<img class="blur-lg" src="{{ $g_quote['image']['url'] }}" alt="{{ $g_quote['image']['alt'] ?? '' }}">
 	</div>
 	@endif

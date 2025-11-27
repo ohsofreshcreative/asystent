@@ -16,10 +16,10 @@ $sectionClass .= ' ' . $background;
 	<div class="__wrapper c-main relative">
 		<div class="">
 
-			<div class="relative flex flex-col md:flex-row justify-between items-center z-10">
-				<h2 data-gsap-element="header" class="">{{ strip_tags($g_gains['header']) }}</h2>
+			<div class="relative flex flex-col md:flex-row justify-between items-start md:items-center gap-4 z-10">
+				<h2 data-gsap-element="header" class="order-2 md:order-1">{{ strip_tags($g_gains['header']) }}</h2>
 				@if (!empty($g_gains['image']))
-				<div data-gsap-element="image" class="__img">
+				<div data-gsap-element="image" class="__img order-1 md:order-2">
 					<img class="" src="{{ $g_gains['image']['url'] }}" alt="{{ $g_gains['image']['alt'] ?? '' }}">
 					@endif
 				</div>
@@ -40,7 +40,7 @@ $sectionClass .= ' ' . $background;
 				<div data-gsap-element="stagger" class="__card relative">
 					<div class="bg-white b-shadow rounded-3xl p-8">
 						@if (!empty($item['image']['url']))
-						<img class="img-s w-full object-cover rounded-2xl mb-6" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}" />
+						<img class="h-80 lg:h-58 w-full object-cover rounded-2xl mb-6" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}" />
 						@endif
 						@if (!empty($item['title']))
 						<h6 class="mb-4">{{ $item['title'] }}</h6>

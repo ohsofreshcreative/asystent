@@ -29,10 +29,10 @@
 /*-- @import '../css/blocks/image.scss'; --*/
 @import '../css/blocks/connect.scss';
 @import '../css/blocks/cta.scss';
+@import '../css/blocks/text-img.scss';
 
 /*-- NOT USED --*/
 @import '../css/blocks/tlc.scss';
-@import '../css/blocks/text-img.scss';
 @import '../css/blocks/categories.scss';
 @import '../css/blocks/bottom-block.scss';
 @import '../css/blocks/hero-prod.scss';

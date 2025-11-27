@@ -19,7 +19,7 @@ $sectionClass .= ' ' . $background;
 
 		<div class="__col grid grid-cols-1 lg:grid-cols-2 items-center gap-10 mt-8">
 			@if (!empty($g_target['gallery']))
-			<div class="grid grid-cols-2 md:grid-cols-3 gap-4 order1">
+			<div data-gsap-element="img" class="grid grid-cols-2 md:grid-cols-3 gap-4 order1">
 				@foreach ($g_target['gallery'] as $image)
 				<div class="bg-white radius b-shadow p-4 flex items-center justify-center">
 					<img class="max-h-12" src="{{ $image['url'] }}" alt="{{ $image['alt'] }}">

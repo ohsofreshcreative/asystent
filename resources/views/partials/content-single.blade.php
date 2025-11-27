@@ -5,7 +5,7 @@ $category = !empty($categories) ? $categories[0] : null;
 
 <section data-gsap-anim="section" class="hero-blog relative bg-gradient-light overflow-hidden">
 	<div class="__wrapper c-main relative z-10 -spt pb-44">
-		<div class="__content w-full sm:w-3/4">
+		<div class="__content w-full sm:w-3/4 mt-24 md:mt-0">
 			@if ($category)
 			<a data-gsap-element="header" href="{{ get_category_link($category->term_id) }}" class="text-white mb-2">{{ $category->name }}</a>
 			@endif
@@ -20,7 +20,7 @@ $category = !empty($categories) ? $categories[0] : null;
 </section>
 
 <div id="tresc" class="__entry relative z-10 -mt-30">
-	<div class="c-main grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-8">
+	<div class="c-main grid grid-cols-1 lg:grid-cols-[3fr_1fr] gap-8">
 
 		<div class="__content">
 			@if(has_post_thumbnail())
@@ -30,7 +30,7 @@ $category = !empty($categories) ? $categories[0] : null;
 			@endif
 			{!! the_content() !!}
 		</div>
-		<div class="__sidebar bg-brand sticky radius overflow-hidden h-max top-10 p-8">
+		<div class="__sidebar bg-brand sticky radius overflow-hidden h-max top-10 p-8 hidden lg:block">
 			<div class="relative z-10">
 				<h6 class="text-white">Sprawdź, ile możesz odzyskać</h6>
 				
