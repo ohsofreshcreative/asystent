@@ -2,35 +2,81 @@
 
 @section('content')
 
-<div class="hero category-header" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 50%), linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%), url('{{ $category_image['url'] }}');">
-	<div class="__wrapper c-main pt-60 pb-26">
-		<div class="__content w-full md:w-2/3">
-			<h1 class=" text-white">
-				{!! get_the_archive_title() !!}
-			</h1>
-			<a data-gsap-element="btn" href="#" class="js-scroll-to-next block m-btn">
-				<div class="__arrow bg-primary">
-					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 20 24" fill="none">
-						<path d="M10.7383 22.7454L19.4181 14.0655C19.8264 13.6572 19.8265 12.9932 19.4183 12.585C19.0101 12.1768 18.3461 12.1768 17.9378 12.5851L11.0484 19.4744L11.0476 1.99787C11.0474 1.41913 10.5788 0.95049 10 0.950244C9.42127 0.950596 8.95255 1.41932 8.9522 1.99806L8.953 19.4752L2.06463 12.5869C1.65641 12.1786 0.99242 12.1787 0.584122 12.587C0.175823 12.9953 0.175763 13.6593 0.583987 14.0675L9.25988 22.7434C9.666 23.1537 10.33 23.1537 10.7383 22.7454Z" fill="white" />
-					</svg>
-				</div>
-			</a>
-		</div>
+@php
+$term = get_queried_object();
+$categories = get_categories();
+
+$category_header = get_field('category_header', $term);
+$category_description = get_field('category_description', $term);
+$category_image = get_field('category_image', $term);
+@endphp
+
+<div class="hero category-header -spt mb-10">
+	<div class="__wrapper c-main">
+		<h2 class="primary text-center w-full md:w-3/4 mx-auto">
+			{!! $category_header ?: get_the_archive_title() !!}
+		</h2>
 	</div>
 </div>
 
-{{-- 
-  <div class="-smt">
-    <div class="__wrapper c-main flex gap-4 overflow-x-scroll">
-      <a class="stroke-small-btn" href="/kategorie/wszystkie-wpisy/">Wszystkie wpisy</a>
-      @foreach($categories as $category)
-      @if($category->name !== 'Wszystkie wpisy')
-      <a class="stroke-small-btn" href="{{ get_category_link($category->term_id) }}" class="button {{ $term && $term->term_id === $category->term_id ? 'active' : '' }}">{{ $category->name }}</a>
-      @endif
-      @endforeach
-    </div>
-  </div> 
-  --}}
+@php
+$sticky_posts = get_option('sticky_posts');
+$featured_post_id = null;
+
+$featured_post_args = [
+'posts_per_page' => 1,
+'cat' => $term->term_id,
+];
+
+if (!empty($sticky_posts)) {
+$featured_post_args['post__in'] = $sticky_posts;
+$featured_post_args['ignore_sticky_posts'] = 1;
+} else {
+
+$featured_post_args['orderby'] = 'date';
+$featured_post_args['order'] = 'DESC';
+}
+
+$featured_post_query = new WP_Query($featured_post_args);
+
+if (!$featured_post_query->have_posts() && !empty($sticky_posts)) {
+$featured_post_args = [
+'posts_per_page' => 1,
+'cat' => $term->term_id,
+'orderby' => 'date',
+'order' => 'DESC',
+];
+$featured_post_query = new WP_Query($featured_post_args);
+}
+
+if ($featured_post_query->have_posts()) {
+$featured_post_id = $featured_post_query->posts[0]->ID;
+}
+@endphp
+
+@if ($featured_post_query->have_posts())
+@while ($featured_post_query->have_posts()) @php $featured_post_query->the_post() @endphp
+<div class="c-main relative featured-post">
+	<div class="bg-white b-shadow rounded-4xl grid grid-cols-1 md:grid-cols-2 items-center gap-10 z-5 p-8">
+		<div>
+			@if (has_post_thumbnail())
+			<a class="rounded-2xl overflow-hidden block" href="{{ get_permalink() }}">
+				{!! get_the_post_thumbnail(get_the_ID(), 'large', ['class' => '__thumb img-m h-full object-cover featured-image ']) !!}
+			</a>
+			@endif
+		</div>
+		<div>
+			<div class="flex gap-3 items-center text-brand font-semibold"><img class="h-5" src="/wp-content/uploads/2025/11/odzyskanie.svg" />Warto przeczytać</div>
+			<h4 class="mt-4">
+				<a href="{{ get_permalink() }}">{{ get_the_title() }}</a>
+			</h4>
+			<a data-gsap-element="btn" class="second-btn m-btn align-self-bottom" href="{{ get_permalink() }}">Przeczytaj</a>
+		</div>
+	</div>
+</div>
+@endwhile
+@php wp_reset_postdata() @endphp
+@endif
 
 @if (have_posts())
 <div class="c-main pb-25 !mt-10 posts grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -50,14 +96,3 @@
 </div>
 @endif
 @endsection
-
-<style>
-	.category-header {
-		background-image:
-			linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 50%),
-			linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%),
-			var(--bg-image);
-		background-size: cover;
-		background-position: center;
-	}
-</style>

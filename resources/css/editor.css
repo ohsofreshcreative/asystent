@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+.editor-styles-wrapper .wp-block-list,
+.editor-styles-wrapper ul,
+.editor-styles-wrapper ol {
+    list-style: disc !important;
+    padding-left: 1.5rem !important;
+}
+
+.editor-styles-wrapper ul li {
+   list-style: inherit !important;
+}

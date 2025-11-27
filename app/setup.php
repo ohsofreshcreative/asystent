@@ -202,7 +202,7 @@ add_action('widgets_init', function () {
 });
 
 
-/*--- CATEGORY IMAGE ---*/
+/*--- CATEGORY TITLE ---*/
 
 /**
  * Register the ACF fields for Category taxonomy.
@@ -214,15 +214,12 @@ add_action('acf/init', function () {
 			'title' => 'Ustawienia Kategorii',
 			'fields' => [
 				[
-					'key' => 'field_category_image',
-					'label' => 'Zdjęcie Kategorii',
-					'name' => 'category_image',
-					'type' => 'image',
-					'instructions' => 'Dodaj obrazek, który będzie wyświetlany jako tło lub nagłówek dla tej kategorii.',
-					'return_format' => 'array', // Zwraca tablicę z danymi obrazka (url, alt, etc.)
-					'preview_size' => 'medium',
-					'library' => 'all',
-				],
+                    'key' => 'field_category_header',
+                    'label' => 'Nagłówek',
+                    'name' => 'category_header',
+                    'type' => 'text',
+                    'instructions' => 'Opcjonalny nagłówek, który może zastąpić domyślną nazwę kategorii.',
+                ],
 			],
 			'location' => [
 				[
@@ -242,6 +239,7 @@ add_action('acf/init', function () {
 		]);
 	}
 });
+
 
 /**
  * Remove archive title prefix (e.g., "Category:", "Tag:").

@@ -25,12 +25,15 @@
 @import '../css/blocks/hero-sub.scss';
 @import '../css/blocks/duo.scss';
 @import '../css/blocks/values.scss';
+@import '../css/blocks/connect.scss';
+/*-- @import '../css/blocks/image.scss'; --*/
+@import '../css/blocks/connect.scss';
+@import '../css/blocks/cta.scss';
 
 /*-- NOT USED --*/
 @import '../css/blocks/tlc.scss';
 @import '../css/blocks/text-img.scss';
 @import '../css/blocks/categories.scss';
-@import '../css/blocks/cta-bg.scss';
 @import '../css/blocks/bottom-block.scss';
 @import '../css/blocks/hero-prod.scss';
 @import '../css/blocks/hero-cat.scss';
@@ -50,5 +53,4 @@
 @import '../css/blocks/inspirations.scss';
 @import '../css/blocks/about.scss';
 @import '../css/blocks/wysiwyg.scss';
-@import '../css/blocks/connect.scss';
 @import '../css/blocks/coop.scss';

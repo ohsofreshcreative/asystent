@@ -43,19 +43,18 @@ class Connect extends Block
 			->addTab('Dane', ['placement' => 'top'])
 			->addGroup('g_connect_1', ['label' => ''])
 			->addText('header', ['label' => 'Tytuł'])
-			->addText('phone', ['label' => 'Telefon'])
-			->addText('email', ['label' => 'Email'])
-			->addText('name', ['label' => 'Nazwa firmy'])
+			->addTextarea('txt', [
+				'label' => 'Opis',
+				'rows' => 4,
+				'new_lines' => 'br',
+			])
 			->addTextarea('address', [
 				'label' => 'Adres',
-				'rows' => 4,
+				'rows' => 2,
 				'new_lines' => 'br',
 			])
-			->addTextarea('data', [
-				'label' => 'Nip, Regon',
-				'rows' => 4,
-				'new_lines' => 'br',
-			])
+			->addText('phone', ['label' => 'Telefon'])
+			->addText('email', ['label' => 'Email'])
 			->addImage('image', [
 				'label' => 'Obraz w tle',
 				'return_format' => 'array',
@@ -76,11 +75,50 @@ class Connect extends Block
 			/*--- USTAWIENIA BLOKU ---*/
 
 			->addTab('Ustawienia bloku', ['placement' => 'top'])
+			->addText('section_id', [
+				'label' => 'ID',
+			])
+			->addText('section_class', [
+				'label' => 'Dodatkowe klasy CSS',
+			])
 			->addTrueFalse('flip', [
 				'label' => 'Odwrotna kolejność',
 				'ui' => 1,
 				'ui_on_text' => 'Tak',
 				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('wide', [
+				'label' => 'Szeroka kolumna',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('nomt', [
+				'label' => 'Usunięcie marginesu górnego',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addTrueFalse('gap', [
+				'label' => 'Większy odstęp',
+				'ui' => 1,
+				'ui_on_text' => 'Tak',
+				'ui_off_text' => 'Nie',
+			])
+			->addSelect('background', [
+				'label' => 'Kolor tła',
+				'choices' => [
+					'none' => 'Brak (domyślne)',
+					'section-white' => 'Białe',
+					'section-light' => 'Jasne',
+					'section-gray' => 'Szare',
+					'section-brand' => 'Marki',
+					'section-gradient' => 'Gradient',
+					'section-dark' => 'Ciemne',
+				],
+				'default_value' => 'none',
+				'ui' => 0, // Ulepszony interfejs
+				'allow_null' => 0,
 			]);
 
 
@@ -92,9 +130,13 @@ class Connect extends Block
 		return [
 			'g_connect_1' => get_field('g_connect_1'),
 			'g_connect_2' => get_field('g_connect_2'),
-			'tiles' => get_field('tiles'),
+			'section_id' => get_field('section_id'),
+			'section_class' => get_field('section_class'),
 			'flip' => get_field('flip'),
-			'lightbg' => get_field('lightbg'),
+			'wide' => get_field('wide'),
+			'nomt' => get_field('nomt'),
+			'gap' => get_field('gap'),
+			'background' => get_field('background'),
 		];
 	}
 }

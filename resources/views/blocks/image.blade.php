@@ -1,15 +1,18 @@
 @php
 $sectionClass = '';
-$sectionClass .= $flip ? ' order-flip' : '';
+$sectionClass .= $container ? ' c-main' : '';
+$sectionClass .= $nomt ? ' !mt-0' : '';
 
-$sectionId = $block->data['id'] ?? null;
-$customClass = $block->data['className'] ?? '';
-
+if (!empty($background) && $background !== 'none') {
+    $sectionClass .= ' ' . $background;
+}
 @endphp
 
-<section data-gsap-anim="section" @if($sectionId) id="{{ $sectionId }}" @endif class="image -smt {{ $block->classes }} {{ $customClass }} {{ $sectionClass }} {{ $section_class }}">
+<!--- image -->
 
-	<div class="__wrapper c-main">
+<section data-gsap-anim="section" @if(!empty($section_id)) id="{{ $section_id }}" @endif class="b-image relative -smt {{ $sectionClass }} {{ $section_class }}">
+
+	<div class="__wrapper">
 
 		@if (!empty($g_image['image']))
 		<img class="object-cover w-full __img img-xl order1" src="{{ $g_image['image']['url'] }}" alt="{{ $g_image['image']['alt'] ?? '' }}">

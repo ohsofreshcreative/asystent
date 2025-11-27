@@ -1,95 +1,107 @@
-.connect {
-
+.b-connect {
   .__phone,
   .__mail {
-    background-color: #fff;
-    padding: 8px 24px 8px 8px;
     display: flex;
     align-items: center;
-    border-radius: 40px;
-    transition: all 0.6s;
+    width: max-content;
   }
 
   .__phone:hover,
   .__mail:hover {
-    background-color: var(--p-200);
-    transition: all 0.6s;
+    color: #fff !important;
   }
 
   .__phone::before {
-    content: url('http://windes.local/wp-content/uploads/2025/10/phone.svg');
-    margin-right: 16px;
-    position: relative;
-    background-color: var(--primary);
-    border-radius: 40px;
-    padding: 8px;
-    height: 40px;
-    width: 40px;
+    content: url('http://asystent.local/wp-content/uploads/2025/11/phone.svg');
+    margin-right: 8px;
     position: relative;
     display: inline-block;
-    transition: all 0.6s;
+    top: 2px;
   }
 
   .__mail::before {
-    content: url('http://windes.local/wp-content/uploads/2025/10/mail.svg');
-    margin-right: 16px;
-    position: relative;
-    background-color: var(--primary);
-    border-radius: 40px;
-    padding: 11px 8px;
-    height: 40px;
-    width: 40px;
+    content: url('http://asystent.local/wp-content/uploads/2025/11/mail.svg');
+    margin-right: 8px;
     position: relative;
     display: inline-block;
-    transition: all 0.6s;
-  }
-
-  .__phone:hover::before,
-  .__mail:hover::before {
-    background-color: var(--p-700);
-    transition: all 0.6s;
+    top: 2px;
   }
 
   .__form {
     label {
-      margin-top: 24px;
+      margin-top: 16px;
       display: block;
     }
 
-    .wpcf7 form .wpcf7-response-output {
-      color: var(--body);
-      width: max-content;
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 14px;
+      color: #fff;
+      margin-bottom: 4px;
+      margin-top: 12px;
     }
 
-   
+    input[type='text'],
+    input[type='tel'],
+    input[type='email'],
+    select,
+    textarea {
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      color: var(--p-100);
+      border: 1px solid var(--border-p-lighter);
+      padding: 12px 16px;
+      transition: all 0.2s ease-out;
+      border-radius: 4px;
+      font-size: 16px;
+    }
 
-  }
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--p-300);
+      opacity: 1;
+    }
 
-  .__glow1 {
-    top: -40%;
-    left: -10%;
-    width: 423px;
-    height: 423px;
-    flex-shrink: 0;
-    position: absolute;
-    border-radius: 423px;
-    background: linear-gradient(315deg,
-        rgb(239, 221, 197, 0.1) 47.34%,
-        rgb(239, 221, 197, 0.1) 84.97%);
-    filter: blur(75px);
-  }
+    input[type='text']:focus,
+    input[type='tel']:focus,
+    input[type='email']:focus,
+    textarea:focus {
+      width: 100%;
+      border: 1px dashed var(--p-400);
+      outline: none;
+      transition: all 0.2s ease-out;
+    }
 
-  .__glow2 {
-    bottom: -60%;
-    right: -30%;
-    width: 423px;
-    height: 423px;
-    flex-shrink: 0;
-    position: absolute;
-    border-radius: 423px;
-    background: linear-gradient(315deg,
-        rgb(239, 221, 197, 0.2) 47.34%,
-        rgb(239, 221, 197, 0.2) 84.97%);
-    filter: blur(150px);
+    textarea {
+      height: 120px;
+    }
+
+    .wpcf7-list-item {
+      margin-left: 0 !important;
+
+      label {
+        display: flex;
+        align-items: start;
+        font-weight: 400;
+        color: #fff;
+
+        input[type='checkbox'] {
+          top: 4px;
+          position: relative;
+        }
+      }
+
+      a {
+        color: #fff;
+        opacity: 0.6;
+      }
+
+      a:hover {
+        color: #fff;
+        opacity: 0.3;
+      }
+    }
   }
 }
