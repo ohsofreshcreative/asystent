@@ -35,112 +35,155 @@
 		}
 	}
 
-		.__tab:first-child {
-			border-top-left-radius: 16px;
+	.__tab:first-child {
+		border-top-left-radius: 16px;
+	}
+
+	.__tab:last-child {
+		border-top-right-radius: 16px;
+	}
+
+	.__tab {
+		border: 1px solid transparent;
+	}
+
+	.__tab:hover {
+		background-color: var(--p-50);
+		border-bottom: 1px solid var(--border-p-light);
+	}
+
+	/*--- !INPUT CONTACT ---*/
+	.tabs__content {
+		h6 {
+			color: var(--secondary);
 		}
 
-		.__tab:last-child {
-			border-top-right-radius: 16px;
+		label {
+			display: block;
+			font-weight: 600;
+			font-size: 14px;
+			color: var(--primary);
+			margin-bottom: 4px;
+			margin-top: 12px;
 		}
 
-		.__tab {
+		input[type='text'],
+		input[type='tel'],
+		input[type='email'],
+		select,
+		textarea {
+			width: 100%;
+			background-color: transparent;
+			border: none;
+			color: var(--p-500);
+			border: 2px solid var(--border-p);
+			padding: 12px 16px;
+			transition: all 0.2s ease-out;
+			border-radius: 4px;
+			font-size: 16px;
+		}
+
+		input::placeholder,
+		textarea::placeholder {
+			color: #686b70;
+			opacity: 1;
+		}
+
+		input[type='text']:focus,
+		input[type='tel']:focus,
+		input[type='email']:focus,
+		textarea:focus {
+			width: 100%;
+			border: 2px dashed var(--p-600);
+			outline: none;
+			transition: all 0.2s ease-out;
+		}
+
+		textarea {
+			height: 120px;
+		}
+
+		.wpcf7-list-item {
+			margin-left: 0 !important;
+
+			label {
+				display: flex;
+				align-items: start;
+				font-weight: 400;
+				color: var(--body);
+
+				input[type='checkbox'] {
+					top: 4px;
+					position: relative;
+				}
+			}
+		}
+
+		input[type='submit'] {
+			font-size: 16px;
+			background: var(--secondary);
+			color: #fff;
+			padding: 15px 45px;
+			display: inline-block;
+			transition: all 0.2s ease-out;
+			border-radius: 8px;
+			font-weight: 600;
+			border: 1px solid transparent;
+			text-decoration: none;
+			white-space: nowrap;
+			width: unset !important;
+			margin-top: 24px;
+			cursor: pointer;
+		}
+
+		input[type='submit']:hover {
+			color: #fff;
+			background: var(--s-hover);
+			transition: all 0.2s ease-out;
 			border: 1px solid transparent;
 		}
 
-		.__tab:hover {
-			background-color: var(--p-50);
-			border-bottom: 1px solid var(--border-p-light);
+		.wpcf7 form .wpcf7-response-output {
+			color: var(--body);
 		}
 
-		/*--- !INPUT CONTACT ---*/
-		.tabs__content {
-			h6 {
-				color:var(--secondary);
-			}
-			label {
-				display: block;
-				font-weight: 600;
-				font-size: 14px;
-				color: var(--primary);
-				margin-bottom: 4px;
-				margin-top: 12px;
+		/*--- !FILE ---*/
+		.__file {
+			margin-bottom: 16px;
+
+			.__content {
+				display: none;
+				margin-top: 16px;
 			}
 
-			input[type='text'],
-			input[type='tel'],
-			input[type='email'],
-			select,
-			textarea {
+			.__trigger {
+				display: flex;
 				width: 100%;
-				background-color: transparent;
-				border: none;
-				color: var(--p-500);
-				border: 2px solid var(--border-p);
-				padding: 12px 16px;
-				transition: all 0.2s ease-out;
-				border-radius: 4px;
-				font-size: 16px;
-			}
-
-			input::placeholder,
-			textarea::placeholder {
-				color: #686b70;
-				opacity: 1;
-			}
-
-			input[type='text']:focus,
-			input[type='tel']:focus,
-			input[type='email']:focus,
-			textarea:focus {
-				width: 100%;
-				border: 2px dashed var(--p-600);
-				outline: none;
-				transition: all 0.2s ease-out;
-			}
-
-			textarea {
-				height: 120px;
-			}
-
-			.wpcf7-list-item {
-				margin-left: 0 !important;
-
-				label {
-					display: flex;
-					align-items: start;
-					font-weight: 400;
-					color: var(--body);
-
-					input[type='checkbox'] {
-						top: 4px;
-						position: relative;
-					}
-				}
-			}
-
-			input[type='submit'] {
-				font-size: 16px;
-				background: var(--secondary);
-				color: #fff;
-				padding: 15px 45px;
-				display: inline-block;
-				transition: all 0.2s ease-out;
-				border-radius: 8px;
-				font-weight: 600;
-				border: 1px solid transparent;
-				text-decoration: none;
-				white-space: nowrap;
-				width: unset !important;
-				margin-top: 24px;
+				justify-content: space-between;
 				cursor: pointer;
+				color: var(--secondary);
+				font-weight: bold;
+				transition: all 0.3s ease-out;
 			}
 
-			input[type='submit']:hover {
-				color: #fff;
-				background: var(--s-hover);
-				transition: all 0.2s ease-out;
-				border: 1px solid transparent;
+			.__trigger:hover {
+				color: var(--s-hover);
+				transition: all 0.3s ease-out;
 			}
 
+			.codedropz-upload-handler {
+				border: 2px dashed var(--primary);
+			}
 		}
+	}
+}
+
+/*--- SUBPAGES ---*/
+
+.b-hero.__car,
+.b-hero.__estate,
+.b-hero.__health {
+	.tabs-nav {
+		display: none !important;
+	}
 }

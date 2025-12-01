@@ -37,20 +37,22 @@ $sectionClass .= ' ' . $background;
 
 			<div class="relative z-10 grid {{ $gridClass }} gap-8 mt-10">
 				@foreach ($r_gains as $item)
-				<div data-gsap-element="stagger" class="__card relative">
-					<div class="bg-white b-shadow rounded-3xl p-8">
-						@if (!empty($item['image']['url']))
-						<img class="h-80 lg:h-58 w-full object-cover rounded-2xl mb-6" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}" />
-						@endif
-						@if (!empty($item['title']))
-						<h6 class="mb-4">{{ $item['title'] }}</h6>
-						@endif
-						@if (!empty($item['oc']))
-						<p class="">Ubezpieczyciel wypłacił: <span class="font-semibold">{{ $item['oc'] }}</p>
-						@endif
-						@if (!empty($item['gain']))
-						<p class="">Odzyskaliśmy dodatkowo: <span class="font-semibold text-green-500">{{ $item['gain'] }}</p>
-						@endif
+				<div data-gsap-element="stagger" class="__cardrelative h-full">
+					<div class="bg-white flex flex-col justify-between  b-shadow rounded-3xl h-full p-8">
+						<div>
+							@if (!empty($item['image']['url']))
+							<img class="h-80 lg:h-58 w-full object-cover rounded-2xl mb-6" src="{{ $item['image']['url'] }}" alt="{{ $item['image']['alt'] ?? '' }}" />
+							@endif
+							@if (!empty($item['title']))
+							<h6 class="mb-4">{{ $item['title'] }}</h6>
+							@endif
+							@if (!empty($item['oc']))
+							<p class="">Ubezpieczyciel wypłacił: <span class="font-semibold">{{ $item['oc'] }}</p>
+							@endif
+							@if (!empty($item['gain']))
+							<p class="">Odzyskaliśmy dodatkowo: <span class="font-semibold text-green-500">{{ $item['gain'] }}</p>
+							@endif
+						</div>
 						@if (!empty($item['client']))
 						<b class="block primary text-lg mt-6">Razem klient otrzymał: <span>{{ $item['client'] }}</b>
 						@endif

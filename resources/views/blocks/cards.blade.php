@@ -36,7 +36,7 @@ $sectionClass .= ' ' . $background;
 			<div class="grid {{ $gridClass }} gap-8 mt-10">
 				@foreach ($r_cards as $item)
 				<a href="#form">
-				<div data-gsap-element="card" class="__card">
+				<div data-gsap-element="card" class="__card h-full">
 					<div class="relative bg-white radius b-shadow h-full p-6">
 						@if (!empty($item['image']['url']))
 						<div class="bg-main rounded-full w-max p-4 mb-6">

@@ -9,7 +9,7 @@ export default defineConfig({
     port: 5981,
     strictPort: true,
     cors: true,
-    origin: ':5981',
+/*     origin: ':5981', */
 
     hmr: {
       protocol: 'ws',

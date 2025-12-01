@@ -31,7 +31,7 @@ $sectionClass .= ' ' . $background;
 				</div>
 			</div>
 
-			<div data-gsap-element="form" class="__form radius overflow-hidden border-p-lighter p-6 md:p-10 mt-10">
+			<div data-gsap-element="form" class="__form radius overflow-hidden border-p-light p-6 md:p-10 mt-10">
 				<h5 class="relative text-white mb-6 z-10">Formularz kontaktowy</h5>
 				<div class="relative z-10">{!! do_shortcode($g_connect_2['shortcode']) !!}</div>
 			</div>

@@ -1132,9 +1132,9 @@ input[type='checkbox'] {
 }
 
 .wpcf7 .wpcf7-submit:disabled {
-	cursor: not-allowed;
+	cursor: not-allowed !important;
 	color: var(--color-gray-500);
-	background-color: var(--color-gray-400);
+	background-color: rgb(198, 198, 198) !important;
 }
 
 .wpcf7-not-valid-tip {
@@ -1151,6 +1151,7 @@ input[type='checkbox'] {
 	width: max-content;
 	padding: 2px 8px;
 	border-radius: 10px;
+	border:1px dashed var(--secondary);
 }
 
 .wpcf7 form .wpcf7-response-output {

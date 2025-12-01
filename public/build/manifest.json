@@ -4,7 +4,7 @@
     "src": "editor.deps.json"
   },
   "resources/css/app.css": {
-    "file": "assets/app-Bj5-tn6u.css",
+    "file": "assets/app-DRAuHNW9.css",
     "src": "resources/css/app.css",
     "isEntry": true,
     "name": "app",
@@ -62,7 +62,7 @@
     "src": "resources/images/ring-mask.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-CmRp3lcS.js",
+    "file": "assets/app-qT-Tx9dt.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
