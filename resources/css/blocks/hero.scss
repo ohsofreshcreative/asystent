@@ -157,9 +157,9 @@
 			}
 
 			.__trigger {
-				display: flex;
-				width: 100%;
 				justify-content: space-between;
+				width:max-content;
+				border-bottom: 2px dashed var(--primary);
 				cursor: pointer;
 				color: var(--secondary);
 				font-weight: bold;
