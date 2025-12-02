@@ -83,9 +83,14 @@ class Hero extends Block
 				],
 			])
 			->addText('shortcode', [
-				'label' => 'Formularz - Zdrowie',
+				'label' => 'Formularz',
 				'instructions' => 'Wklej kod formularza:  [contact-form-7 id="f12c470" title="Contact form 1"]',
 				'default_value' => '[contact-form-7 id="f12c470" title="Contact form 1"]',
+			])
+			->addText('shortcode_2', [
+				'label' => 'Formularz - Thank you',
+				'instructions' => 'Wklej kod drugiego formularza"]',
+				
 			])
 			->endRepeater()
 

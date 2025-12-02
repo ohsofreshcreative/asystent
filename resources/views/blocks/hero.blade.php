@@ -48,7 +48,7 @@ $sectionClass .= ' ' . $background;
 
 			@if (!empty($r_hero))
 			<div x-data="{ activeTab: 0 }" class="tabs-container bg-white radius mt-6">
-				{{-- Nawigacja zakładek --}}
+
 				<div class="tabs-nav grid grid-cols-3">
 					@foreach ($r_hero as $index => $item)
 					<button
@@ -64,13 +64,38 @@ $sectionClass .= ' ' . $background;
 					@endforeach
 				</div>
 
-				{{-- Kontener na treść zakładek --}}
 				<div class="tabs__content p-8">
 					@foreach ($r_hero as $index => $item)
-					<div x-show="activeTab === {{ $index }}" x-cloak class="tab-panel">
-						@if (!empty($item['shortcode']))
-						{!! do_shortcode($item['shortcode']) !!}
-						@endif
+
+					<div x-show="activeTab === {{ $index }}" x-cloak class="tab-panel" data-tab-content="{{ $index }}">
+
+
+						<div class="cf7-step-1-container">
+							@if (!empty($item['shortcode']))
+							{!! do_shortcode($item['shortcode']) !!}
+							@endif
+						</div>
+
+						<div class="cf7-step-2-container" style="display:none;">
+							<div class="flex flex-col md:flex-row gap-6">
+								<div>
+									<h6 class="primary">Dziękujemy za przesłanie formularza!</h6>
+									<p>Otrzymaliśmy Twoje zgłoszenie i rozpoczniemy analizę tak szybko, jak to możliwe.
+										Skontaktujemy się z Tobą w ciągu 24 godzin, aby przekazać kolejne kroki i wstępne wyniki.</p>
+								</div>
+								<img class="max-w-21" src="/wp-content/uploads/2025/12/logo.svg" />
+							</div>
+
+							<div class="my-6">
+								<h6>Dołącz dokumenty</h6>
+								<p>Jeśli chcesz przyspieszyć analizę</p>
+							</div>
+
+							@if (!empty($item['shortcode_2']))
+							{!! do_shortcode($item['shortcode_2']) !!}
+							@endif
+						</div>
+
 					</div>
 					@endforeach
 				</div>
