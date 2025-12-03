@@ -14,7 +14,7 @@ $sectionClass .= ' ' . $background;
 <section
 	data-gsap-anim="section"
 	@if(!empty($section_id)) id="{{ $section_id }}" @endif
-	class="b-hero bg-primary relative section-py {{ $sectionClass }} {{ $section_class }}">
+	class="b-hero bg-primary relative pt-12 pb-18 {{ $sectionClass }} {{ $section_class }}">
 
 	<div class="__wrapper c-main grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center relative z-20">
 		
