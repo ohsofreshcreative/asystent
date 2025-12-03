@@ -1157,11 +1157,10 @@ input[type='checkbox'] {
 .wpcf7 form .wpcf7-response-output {
 	border: none;
 	margin: 0;
-	padding: 0;
+	padding: 16px;
 	margin-top: 24px;
-	border-bottom: 1px dashed var(--secondary) !important;
-	width: max-content;
 	color: #fff;
+	border:1px dashed var(--secondary);
 }
 
 /*--- !OFFERS ---*/
