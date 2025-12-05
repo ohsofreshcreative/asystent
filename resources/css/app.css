@@ -30,7 +30,7 @@
 @import '../css/blocks/connect.scss';
 @import '../css/blocks/cta.scss';
 @import '../css/blocks/text-img.scss';
-@import '../css/blocks/text.scss';
+@import '../css/blocks/content.scss';
 
 /*-- NOT USED --*/
 @import '../css/blocks/tlc.scss';

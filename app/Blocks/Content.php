@@ -5,11 +5,11 @@ namespace App\Blocks;
 use Log1x\AcfComposer\Block;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Text extends Block
+class Content extends Block
 {
 	public $name = 'Nagłówek oraz tekst';
-	public $description = 'text';
-	public $slug = 'text';
+	public $description = 'content';
+	public $slug = 'content';
 	public $category = 'formatting';
 	public $icon = 'align-pull-left';
 	public $keywords = ['tresc', 'zdjecie'];
@@ -24,10 +24,10 @@ class Text extends Block
 
 	public function fields()
 	{
-		$text = new FieldsBuilder('text');
+		$content = new FieldsBuilder('content');
 
-		$text
-			->setLocation('block', '==', 'acf/text') // ważne!
+		$content
+			->setLocation('block', '==', 'acf/content') // ważne!
 			->addText('block-title', [
 				'label' => 'Tytuł',
 				'required' => 0,
@@ -39,7 +39,7 @@ class Text extends Block
 			])
 			/*--- GROUP ---*/
 			->addTab('Elementy', ['placement' => 'top'])
-			->addGroup('g_text', ['label' => ''])
+			->addGroup('g_content', ['label' => ''])
 			->addText('title', ['label' => 'Tytuł'])
 			->addWysiwyg('txt', [
 				'label' => 'Treść',
@@ -102,13 +102,13 @@ class Text extends Block
                 'allow_null' => 0,
             ]);
 
-		return $text;
+		return $content;
 	}
 
 	public function with()
 	{
 		return [
-			'g_text' => get_field('g_text'),
+			'g_content' => get_field('g_content'),
 			'section_id' => get_field('section_id'),
 			'section_class' => get_field('section_class'),
 			'flip' => get_field('flip'),
