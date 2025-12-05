@@ -11,7 +11,7 @@
 		ul {
 			margin-top: 8px;
 			margin-bottom: 24px;
-			list-style: none;
+			list-style: disc inside;
 			padding-left: 0;
 
 			li {
@@ -32,6 +32,10 @@
 					background-position: center;
 				}
 			}
+		}
+
+		ol {
+			list-style: decimal inside;
 		}
 	}
 }
