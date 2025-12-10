@@ -106,7 +106,8 @@ document.querySelectorAll('.gains-swiper').forEach(container => {
   new Swiper(container, {
     modules: [Navigation, Pagination],
     loop: true,
-    loopedSlides: 4,
+    loopedSlides: 20,
+	 watchOverflow: true, 
     breakpoints: {
       0: {
         slidesPerView: 1,
