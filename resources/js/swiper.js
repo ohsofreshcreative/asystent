@@ -98,6 +98,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+
+ // Swiper dla '.offer-swiper'
+  document.querySelectorAll('.gains-swiper').forEach(container => {
+    new Swiper(container, {
+      modules: [Navigation, Pagination],
+      loop: true,
+      breakpoints: {
+        0: { 
+          slidesPerView: 1, 
+          spaceBetween: 20 
+        },
+        768: { 
+          slidesPerView: 1.7, 
+          spaceBetween: 30 
+        },
+        1024: { 
+          slidesPerView: 2.8, 
+          spaceBetween: 32 
+        },
+      },
+      pagination: {
+        el: container.querySelector('.swiper-pagination'),
+        clickable: true,
+      },
+      navigation: {
+        nextEl: container.querySelector('.__next'),
+        prevEl: container.querySelector('.__prev'),
+      },
+    });
+  });
+
 document.addEventListener('DOMContentLoaded', () => {
   const swipers = document.querySelectorAll('.offer-swiper');
 

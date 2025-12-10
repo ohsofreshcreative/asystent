@@ -2,4 +2,15 @@
 	.__img img {
 		max-width: 210px;
 	}
+
+	.__prev,
+	.__next {
+		border: 1px dotted var(--primary);
+		transition: all 0.2s;
+	}
+	.__prev:hover,
+	.__next:hover {
+		background-color: var(--p-100);
+		transition: all 0.2s;
+	}
 }
